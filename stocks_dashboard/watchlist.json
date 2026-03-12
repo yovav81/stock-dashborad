@@ -1,0 +1,6 @@
+[
+  {"ticker": "UBER", "market": "US", "company": "Uber Technologies"},
+  {"ticker": "DASH", "market": "US", "company": "DoorDash"},
+  {"ticker": "ASML", "market": "US", "company": "ASML"},
+  {"ticker": "ELAL", "market": "IL", "company": "El Al Israel"}
+]
