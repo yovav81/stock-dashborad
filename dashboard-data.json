@@ -1,29 +1,29 @@
 {
-  "updated_at": "2026-03-13T00:23:40.176332+00:00",
+  "updated_at": "2026-03-13T00:28:28.531101+00:00",
   "performance": [
     {
       "ticker": "UBER",
-      "week_change_pct": 0.0,
-      "month_change_pct": 0.0,
-      "ytd_change_pct": 0.0
+      "week_change_pct": -2.88,
+      "month_change_pct": -3.25,
+      "ytd_change_pct": -10.7
     },
     {
       "ticker": "DASH",
-      "week_change_pct": 0.0,
-      "month_change_pct": 0.0,
-      "ytd_change_pct": 0.0
+      "week_change_pct": -9.72,
+      "month_change_pct": -8.34,
+      "ytd_change_pct": -28.58
     },
     {
       "ticker": "ASML",
-      "week_change_pct": 0.0,
-      "month_change_pct": 0.0,
-      "ytd_change_pct": 0.0
+      "week_change_pct": 4.55,
+      "month_change_pct": -6.82,
+      "ytd_change_pct": 26.5
     },
     {
       "ticker": "ELAL.TA",
-      "week_change_pct": 0.0,
-      "month_change_pct": 0.0,
-      "ytd_change_pct": 0.0
+      "week_change_pct": -4.97,
+      "month_change_pct": -13.06,
+      "ytd_change_pct": -17.75
     }
   ],
   "news": {
