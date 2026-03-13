@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-13T07:59:30.052993+00:00",
+  "updated_at": "2026-03-13T10:12:38.015572+00:00",
   "performance": [
     {
       "ticker": "UBER",
@@ -21,16 +21,134 @@
     },
     {
       "ticker": "ELAL.TA",
-      "week_change_pct": -4.97,
-      "month_change_pct": -13.06,
-      "ytd_change_pct": -17.75
+      "week_change_pct": -6.02,
+      "month_change_pct": -14.02,
+      "ytd_change_pct": -18.66
     }
   ],
   "news": {
-    "UBER": [],
-    "DASH": [],
-    "ASML": [],
-    "ELAL.TA": []
+    "UBER": [
+      {
+        "title": "Burning effigies, doomsday prepping and \u2018cyber-chondriacs\u2019: The wacky beliefs of the tech elite shaping global society",
+        "source": "New York Post",
+        "published_at": "2026-03-12T10:00:00Z",
+        "url": "https://nypost.com/2026/03/12/us-news/the-wacky-beliefs-of-the-tech-elite-shaping-global-society/"
+      },
+      {
+        "title": "Watch out, prediction markets. The 'super apps' are coming.",
+        "source": "Business Insider",
+        "published_at": "2026-03-12T09:37:01Z",
+        "url": "https://www.businessinsider.com/next-summit-prediction-markets-super-apps-2026-3"
+      },
+      {
+        "title": "Big Law's outlaw has something to prove",
+        "source": "Business Insider",
+        "published_at": "2026-03-12T09:05:01Z",
+        "url": "https://www.businessinsider.com/legora-founder-harvey-legal-tech-ai-platform-competition-2026-3"
+      },
+      {
+        "title": "NVIDIA- and Uber-backed Nuro is testing autonomous vehicles in Tokyo",
+        "source": "Slashdot.org",
+        "published_at": "2026-03-12T08:33:25Z",
+        "url": "https://slashdot.org/firehose.pl?op=view&amp;id=180957496"
+      },
+      {
+        "title": "Social media giants have grand plans for AI. Creators fear they'll be left out.",
+        "source": "Business Insider",
+        "published_at": "2026-03-12T08:25:01Z",
+        "url": "https://www.businessinsider.com/social-giants-build-ai-future-creators-less-power-2026-3"
+      }
+    ],
+    "DASH": [
+      {
+        "title": "Rain-X De-Icer 1-Gallon Bottle for $5 + free shipping w/ Prime",
+        "source": "Dealnews.com",
+        "published_at": "2026-03-12T10:07:42Z",
+        "url": "https://www.dealnews.com/Rain-X-De-Icer-1-Gallon-Bottle-for-5-free-shipping-w-Prime/21815629.html"
+      },
+      {
+        "title": "Watch out, prediction markets. The 'super apps' are coming.",
+        "source": "Business Insider",
+        "published_at": "2026-03-12T09:37:01Z",
+        "url": "https://www.businessinsider.com/next-summit-prediction-markets-super-apps-2026-3"
+      },
+      {
+        "title": "Gamers just want to chill out and farm \u2014 and it's sparking a surprise rally in Nintendo stock",
+        "source": "Business Insider",
+        "published_at": "2026-03-12T09:35:02Z",
+        "url": "https://www.businessinsider.com/pokemon-pokopia-super-mario-galaxy-movie-nintendo-stock-price-impact-2026-3"
+      },
+      {
+        "title": "New York Giants hosting Notre Dame RB Jeremiyah Love for top-30 visit",
+        "source": "USA Today",
+        "published_at": "2026-03-12T09:33:57Z",
+        "url": "https://giantswire.usatoday.com/story/sports/nfl/giants/2026/03/12/new-york-giants-hosting-notre-dame-jeremiyah-love-top-30-visit/89114392007/"
+      }
+    ],
+    "ASML": [
+      {
+        "title": "How Retirees Are Using ESGD to Pair ESG Values With International Dividend Income",
+        "source": "24/7 Wall St.",
+        "published_at": "2026-03-11T08:29:59Z",
+        "url": "https://247wallst.com/investing/2026/03/11/how-retirees-are-using-esgd-to-pair-esg-values-with-international-dividend-income/"
+      },
+      {
+        "title": "Why ASML Investors Shouldn\u2019t Worry About Competition From China",
+        "source": "Yahoo Entertainment",
+        "published_at": "2026-03-10T14:26:14Z",
+        "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_53dea182-2898-409d-9ae9-859bb5ea2b6b"
+      },
+      {
+        "title": "BofA Lifts PT on ASML Holding N.V. (ASML) to $1,886 from $1,868 \u2013 Here\u2019s Why",
+        "source": "Yahoo Entertainment",
+        "published_at": "2026-03-10T11:11:58Z",
+        "url": "https://finance.yahoo.com/news/bofa-lifts-pt-asml-holding-111158589.html"
+      },
+      {
+        "title": "China's Semiconductor Makers Unite In Call To 'Build China's ASML'",
+        "source": "Yahoo Entertainment",
+        "published_at": "2026-03-10T11:00:20Z",
+        "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_f4cc3d1b-f013-4bf1-a2ba-2a4bf2bf155c"
+      },
+      {
+        "title": "The Myth of AI Sovereignty",
+        "source": "Foreign Policy",
+        "published_at": "2026-03-09T10:00:32Z",
+        "url": "http://foreignpolicy.com/2026/03/09/artificial-intelligence-ai-sovereignty-taiwan-semiconductor-manufacturing-tsmc-chip-supply-chain-united-states-china/"
+      }
+    ],
+    "ELAL.TA": [
+      {
+        "title": "United UATP, Powered by TreviPay, Expands Corporate Travel Billing Program to New Global Markets",
+        "source": "Financial Post",
+        "published_at": "2026-03-10T12:06:14Z",
+        "url": "https://financialpost.com/pmn/business-wire-news-releases-pmn/united-uatp-powered-by-trevipay-expands-corporate-travel-billing-program-to-new-global-markets"
+      },
+      {
+        "title": "How to fly out of Middle East safely, and which airlines are still running flights in region? Flight updates, routes and safe travel guidance",
+        "source": "The Times of India",
+        "published_at": "2026-03-05T07:26:32Z",
+        "url": "https://economictimes.indiatimes.com/news/international/us/how-to-fly-out-of-middle-east-safely-and-which-airlines-are-still-running-flights-in-region-flight-updates-routes-and-safe-travel-guidance-precautions-airspace-restrictions-flight-paths-and-government-advisories/articleshow/129075776.cms"
+      },
+      {
+        "title": "El Al Israel Airlines Wants Permission to Fly Stranded Israelis to Egypt and Jordan Where They Can Then Cross the Border",
+        "source": "Paddle Your Own Kanoo",
+        "published_at": "2026-03-02T11:17:37Z",
+        "url": "https://www.paddleyourownkanoo.com/2026/03/02/el-al-israel-airlines-wants-permission-to-fly-stranded-israelis-to-egypt-and-jordan-where-they-can-then-cross-the-border/"
+      },
+      {
+        "title": "EL AL Halts New Bookings Through March 21st as Israel Prepares Massive Repatriation Effort",
+        "source": "Thebulkheadseat.com",
+        "published_at": "2026-02-28T22:11:03Z",
+        "url": "https://thebulkheadseat.com/el-al-halts-new-bookings-through-march-21st-as-israel-prepares-massive-repatriation-effort/"
+      },
+      {
+        "title": "\u2018Free Palestine\u2019 Stickers Delay El Al Flight From Los Angeles as 140 Suitcases Have To Be Searched For Explosives",
+        "source": "Paddle Your Own Kanoo",
+        "published_at": "2026-02-21T09:21:04Z",
+        "url": "https://www.paddleyourownkanoo.com/2026/02/21/free-palestine-stickers-delay-el-al-flight-from-los-angeles-as-140-suitcases-have-to-be-searched-for-explosives/"
+      }
+    ]
   },
   "filings": {
     "UBER": [],
