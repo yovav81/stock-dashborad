@@ -22,7 +22,7 @@ def get_date_ranges():
     return week_ago, month_start, year_start
 
 
-def fetch_prices(ticker):
+def fetch_prices(ticker: str):
     print(f"Fetching prices for {ticker}")
 
     try:
@@ -40,7 +40,6 @@ def fetch_prices(ticker):
         return {}
 
     data = {}
-
     for idx, row in hist.iterrows():
         try:
             date_str = idx.strftime("%Y-%m-%d")
@@ -101,7 +100,7 @@ def calculate_returns(series, week_ago, month_start, year_start):
     }
 
 
-def fetch_news(company_name, ticker):
+def fetch_news(company_name: str, ticker: str):
     if not NEWS_API_KEY:
         print(f"No NEWS_API_KEY set. Skipping news for {ticker}")
         return []
@@ -115,12 +114,8 @@ def fetch_news(company_name, ticker):
         "apiKey": NEWS_API_KEY,
     }
 
-    headers = {
-        "User-Agent": "stock-dashboard/1.0"
-    }
-
     try:
-        resp = requests.get(url, params=params, headers=headers, timeout=30)
+        resp = requests.get(url, params=params, timeout=30)
         print(f"News API status for {ticker}: {resp.status_code}")
     except Exception as e:
         print(f"News request failed for {ticker}: {e}")
@@ -151,11 +146,11 @@ def fetch_news(company_name, ticker):
     return articles
 
 
-def fetch_filings_us(ticker):
+def fetch_filings_us(ticker: str):
     return []
 
 
-def fetch_filings_il(ticker):
+def fetch_filings_il(ticker: str):
     return []
 
 
@@ -185,7 +180,6 @@ def main():
                 "ytd_change_pct": 0.0,
             }
 
-        print(f"{ticker} returns: {returns}")
         performance.append({"ticker": ticker, **returns})
 
         try:
