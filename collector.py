@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 import json
 import os
+import time
 import datetime
 from datetime import timezone
 
 import requests
 import yfinance as yf
 
-NEWS_API_KEY = os.getenv("NEWS_API_KEY", "")
+NEWS_API_KEY = os.getenv("NEWS_API_KEY", "").strip()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 WATCHLIST_FILE = os.path.join(BASE_DIR, "watchlist.json")
@@ -18,6 +19,13 @@ SEC_HEADERS = {
     "Accept-Encoding": "gzip, deflate",
 }
 
+SEC_TICKERS_URL = "https://www.sec.gov/files/company_tickers.json"
+SEC_SUBMISSIONS_URL_TEMPLATE = "https://data.sec.gov/submissions/CIK{cik}.json"
+
+NEWS_URL = "https://newsapi.org/v2/everything"
+
+SEC_WANTED_FORMS = {"10-K", "10-Q", "8-K", "20-F", "6-K", "S-1", "DEF 14A"}
+
 
 def get_date_ranges():
     today = datetime.datetime.utcnow().date()
@@ -25,6 +33,18 @@ def get_date_ranges():
     month_start = today.replace(day=1)
     year_start = today.replace(month=1, day=1)
     return week_ago, month_start, year_start
+
+
+def safe_request_json(url, headers=None, params=None, timeout=30, allow_failure=False):
+    try:
+        resp = requests.get(url, headers=headers, params=params, timeout=timeout)
+        resp.raise_for_status()
+        return resp.json()
+    except Exception as e:
+        print(f"Request failed: {url} -> {e}")
+        if allow_failure:
+            return None
+        raise
 
 
 def fetch_prices(ticker: str):
@@ -111,7 +131,6 @@ def fetch_news(company_name: str, ticker: str):
         print(f"No NEWS_API_KEY set. Skipping news for {ticker}")
         return []
 
-    url = "https://newsapi.org/v2/everything"
     params = {
         "q": f"\"{company_name}\" OR {ticker}",
         "language": "en",
@@ -121,7 +140,7 @@ def fetch_news(company_name: str, ticker: str):
     }
 
     try:
-        resp = requests.get(url, params=params, timeout=30)
+        resp = requests.get(NEWS_URL, params=params, timeout=30)
         print(f"News API status for {ticker}: {resp.status_code}")
     except Exception as e:
         print(f"News request failed for {ticker}: {e}")
@@ -153,24 +172,39 @@ def fetch_news(company_name: str, ticker: str):
 
 
 def fetch_sec_company_tickers():
-    url = "https://www.sec.gov/files/company_tickers.json"
+    data = safe_request_json(
+        SEC_TICKERS_URL,
+        headers=SEC_HEADERS,
+        timeout=30,
+        allow_failure=True,
+    )
 
-    resp = requests.get(url, headers=SEC_HEADERS, timeout=30)
-    resp.raise_for_status()
-    data = resp.json()
+    if not data:
+        print("Failed to load SEC ticker map")
+        return {}
 
     mapping = {}
-    for item in data.values():
-        ticker = item.get("ticker", "").upper()
-        cik = str(item.get("cik_str", "")).zfill(10)
-        if ticker:
-            mapping[ticker] = cik
+    if isinstance(data, dict):
+        iterable = data.values()
+    else:
+        iterable = data
+
+    for item in iterable:
+        ticker = str(item.get("ticker", "")).upper().strip()
+        cik_raw = item.get("cik_str")
+        if not ticker or cik_raw is None:
+            continue
+        cik = str(cik_raw).zfill(10)
+        mapping[ticker] = cik
 
     print(f"Loaded {len(mapping)} SEC ticker->CIK mappings")
     return mapping
 
 
 def build_sec_filing_url(cik: str, accession_number: str, primary_document: str):
+    if not cik or not accession_number or not primary_document:
+        return None
+
     cik_no_leading = str(int(cik))
     accession_nodash = accession_number.replace("-", "")
     return f"https://www.sec.gov/Archives/edgar/data/{cik_no_leading}/{accession_nodash}/{primary_document}"
@@ -182,14 +216,20 @@ def fetch_filings_us(ticker: str, ticker_to_cik: dict):
         print(f"No CIK found for {ticker}")
         return []
 
-    url = f"https://data.sec.gov/submissions/CIK{cik}.json"
+    url = SEC_SUBMISSIONS_URL_TEMPLATE.format(cik=cik)
 
-    try:
-        resp = requests.get(url, headers=SEC_HEADERS, timeout=30)
-        resp.raise_for_status()
-        data = resp.json()
-    except Exception as e:
-        print(f"SEC filings fetch failed for {ticker}: {e}")
+    data = safe_request_json(
+        url,
+        headers=SEC_HEADERS,
+        timeout=30,
+        allow_failure=True,
+    )
+
+    # מרווח קטן כדי לא להיות אגרסיבי מול SEC
+    time.sleep(0.2)
+
+    if not data:
+        print(f"No SEC submissions data for {ticker}")
         return []
 
     recent = data.get("filings", {}).get("recent", {})
@@ -198,11 +238,10 @@ def fetch_filings_us(ticker: str, ticker_to_cik: dict):
     accessions = recent.get("accessionNumber", [])
     primary_docs = recent.get("primaryDocument", [])
 
-    wanted_forms = {"10-K", "10-Q", "8-K", "20-F", "6-K", "S-1", "DEF 14A"}
     filings = []
 
     for form, filing_date, accession, primary_doc in zip(forms, dates, accessions, primary_docs):
-        if form not in wanted_forms:
+        if form not in SEC_WANTED_FORMS:
             continue
 
         filing_url = build_sec_filing_url(cik, accession, primary_doc)
@@ -211,7 +250,7 @@ def fetch_filings_us(ticker: str, ticker_to_cik: dict):
                 "type": form,
                 "date": filing_date,
                 "title": form,
-                "url": filing_url,
+                "url": filing_url or f"https://www.sec.gov/edgar/search/#/entityName={ticker}",
             }
         )
 
@@ -223,6 +262,7 @@ def fetch_filings_us(ticker: str, ticker_to_cik: dict):
 
 
 def fetch_filings_il(ticker: str):
+    # שלב הבא: חיבור למאיה / TASE
     return []
 
 
@@ -268,11 +308,15 @@ def main():
             print(f"News fetch failed for {ticker}: {e}")
             news[ticker] = []
 
-        if market.upper() == "US":
-            filings[ticker] = fetch_filings_us(ticker, ticker_to_cik)
-        elif market.upper() == "IL":
-            filings[ticker] = fetch_filings_il(ticker)
-        else:
+        try:
+            if market.upper() == "US":
+                filings[ticker] = fetch_filings_us(ticker, ticker_to_cik)
+            elif market.upper() == "IL":
+                filings[ticker] = fetch_filings_il(ticker)
+            else:
+                filings[ticker] = []
+        except Exception as e:
+            print(f"Filings fetch failed for {ticker}: {e}")
             filings[ticker] = []
 
     output = {
