@@ -1,88 +1,94 @@
 {
-  "updated_at": "2026-03-13T10:16:14.297758+00:00",
+  "updated_at": "2026-03-13T14:33:19.584653+00:00",
   "performance": [
     {
       "ticker": "UBER",
-      "week_change_pct": -2.88,
-      "month_change_pct": -3.25,
-      "ytd_change_pct": -10.7
+      "week_change_pct": -0.67,
+      "month_change_pct": -1.05,
+      "ytd_change_pct": -8.67
     },
     {
       "ticker": "DASH",
-      "week_change_pct": -9.72,
-      "month_change_pct": -8.34,
-      "ytd_change_pct": -28.58
+      "week_change_pct": -7.98,
+      "month_change_pct": -6.57,
+      "ytd_change_pct": -27.2
     },
     {
       "ticker": "ASML",
-      "week_change_pct": 4.55,
-      "month_change_pct": -6.82,
-      "ytd_change_pct": 26.5
+      "week_change_pct": 6.24,
+      "month_change_pct": -5.31,
+      "ytd_change_pct": 28.55
     },
     {
       "ticker": "ELAL.TA",
-      "week_change_pct": -5.88,
-      "month_change_pct": -13.89,
-      "ytd_change_pct": -18.53
+      "week_change_pct": -7.21,
+      "month_change_pct": -15.11,
+      "ytd_change_pct": -19.69
     }
   ],
   "news": {
     "UBER": [
       {
-        "title": "Burning effigies, doomsday prepping and \u2018cyber-chondriacs\u2019: The wacky beliefs of the tech elite shaping global society",
-        "source": "New York Post",
-        "published_at": "2026-03-12T10:00:00Z",
-        "url": "https://nypost.com/2026/03/12/us-news/the-wacky-beliefs-of-the-tech-elite-shaping-global-society/"
+        "title": "Markets/Coverages: Marsh Risk, Apollo Develop Insurance Facility for Uber",
+        "source": "Insurance Journal",
+        "published_at": "2026-03-12T14:13:17Z",
+        "url": "https://www.insurancejournal.com/news/national/2026/03/12/861638.htm"
       },
       {
-        "title": "Watch out, prediction markets. The 'super apps' are coming.",
-        "source": "Business Insider",
-        "published_at": "2026-03-12T09:37:01Z",
-        "url": "https://www.businessinsider.com/next-summit-prediction-markets-super-apps-2026-3"
+        "title": "Rylee Arnold Reveals How BYU Football Boyfriend Got Her Phone Number With Extremely Simple DM",
+        "source": "BroBible",
+        "published_at": "2026-03-12T13:37:00Z",
+        "url": "https://brobible.com/culture/article/rylee-arnold-who-is-boyfriend-walker-lyons-first-dm-instagram-uber/"
       },
       {
-        "title": "Big Law's outlaw has something to prove",
-        "source": "Business Insider",
-        "published_at": "2026-03-12T09:05:01Z",
-        "url": "https://www.businessinsider.com/legora-founder-harvey-legal-tech-ai-platform-competition-2026-3"
+        "title": "Rapido's new backer; Blinkit gets funding boost",
+        "source": "The Times of India",
+        "published_at": "2026-03-12T13:35:28Z",
+        "url": "https://economictimes.indiatimes.com/tech/newsletters/tech-top-5/rapidos-new-backer-blinkit-gets-funding-boost/articleshow/129509657.cms"
       },
       {
-        "title": "NVIDIA- and Uber-backed Nuro is testing autonomous vehicles in Tokyo",
-        "source": "Slashdot.org",
-        "published_at": "2026-03-12T08:33:25Z",
-        "url": "https://slashdot.org/firehose.pl?op=view&amp;id=180957496"
+        "title": "7-Eleven Pi Day Deal for Any pizza for $3.14 on March 14",
+        "source": "Dealnews.com",
+        "published_at": "2026-03-12T13:13:08Z",
+        "url": "https://www.dealnews.com/7-Eleven-Pi-Day-Deal-for-Any-pizza-for-3-14-on-March-14/21815691.html"
       },
       {
-        "title": "Social media giants have grand plans for AI. Creators fear they'll be left out.",
-        "source": "Business Insider",
-        "published_at": "2026-03-12T08:25:01Z",
-        "url": "https://www.businessinsider.com/social-giants-build-ai-future-creators-less-power-2026-3"
+        "title": "40 Years of Wireless Evolution Leads to a Smart, Sensing Network",
+        "source": "Ieee.org",
+        "published_at": "2026-03-12T13:00:03Z",
+        "url": "https://spectrum.ieee.org/telecom-history-1g-to-6g"
       }
     ],
     "DASH": [
       {
-        "title": "Rain-X De-Icer 1-Gallon Bottle for $5 + free shipping w/ Prime",
-        "source": "Dealnews.com",
-        "published_at": "2026-03-12T10:07:42Z",
-        "url": "https://www.dealnews.com/Rain-X-De-Icer-1-Gallon-Bottle-for-5-free-shipping-w-Prime/21815629.html"
+        "title": "Chargers sign ex-Ravens RB Keaton Mitchell to 2-year deal",
+        "source": "Bolts From The Blue",
+        "published_at": "2026-03-12T14:22:23Z",
+        "url": "https://www.boltsfromtheblue.com/los-angeles-chargers-news/63381/chargers-sign-ex-ravens-rb-keaton-mitchell-to-2-year-deal"
       },
       {
-        "title": "Watch out, prediction markets. The 'super apps' are coming.",
+        "title": "Today\u2019s Hot Deals: TurboTax Deluxe Tax Software (Federal & State), Nothing Ear (a) Wireless Earbuds, Razer Seiren V3 Microphone, Burrito and Pizza Throw Blankets, and MORE!",
+        "source": "Geeksaresexy.net",
+        "published_at": "2026-03-12T14:10:57Z",
+        "url": "https://www.geeksaresexy.net/2026/03/12/todays-hot-deals-turbotax-deluxe-tax-software-federal-state-nothing-ear-a-wireless-earbuds-razer-seiren-v3-microphone-burrito-and-pizza-throw-blankets-and-more/"
+      },
+      {
+        "title": "2018 Porsche Panamera Turbo Sport Turismo",
+        "source": "Bringatrailer.com",
+        "published_at": "2026-03-12T14:05:07Z",
+        "url": "https://bringatrailer.com/listing/2018-porsche-panamera-turbo-20/"
+      },
+      {
+        "title": "Every A113 we could find in Pixar movies, including 'Hoppers'",
         "source": "Business Insider",
-        "published_at": "2026-03-12T09:37:01Z",
-        "url": "https://www.businessinsider.com/next-summit-prediction-markets-super-apps-2026-3"
+        "published_at": "2026-03-12T13:55:51Z",
+        "url": "https://www.businessinsider.com/every-a113-easter-egg-pixar-movies"
       },
       {
-        "title": "Gamers just want to chill out and farm \u2014 and it's sparking a surprise rally in Nintendo stock",
-        "source": "Business Insider",
-        "published_at": "2026-03-12T09:35:02Z",
-        "url": "https://www.businessinsider.com/pokemon-pokopia-super-mario-galaxy-movie-nintendo-stock-price-impact-2026-3"
-      },
-      {
-        "title": "New York Giants hosting Notre Dame RB Jeremiyah Love for top-30 visit",
-        "source": "USA Today",
-        "published_at": "2026-03-12T09:33:57Z",
-        "url": "https://giantswire.usatoday.com/story/sports/nfl/giants/2026/03/12/new-york-giants-hosting-notre-dame-jeremiyah-love-top-30-visit/89114392007/"
+        "title": "WestJet, Porter fined tens of thousands over delays, not giving flyers enough food and drink",
+        "source": "National Post",
+        "published_at": "2026-03-12T13:53:37Z",
+        "url": "https://nationalpost.com/news/westjet-porter-fined-tens-of-thousands-over-delays-not-giving-flyers-enough-food-and-drink"
       }
     ],
     "ASML": [
@@ -151,9 +157,102 @@
     ]
   },
   "filings": {
-    "UBER": [],
-    "DASH": [],
-    "ASML": [],
+    "UBER": [
+      {
+        "type": "10-K",
+        "date": "2026-02-13",
+        "title": "10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm"
+      },
+      {
+        "type": "8-K",
+        "date": "2026-02-09",
+        "title": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1543151/000155278126000043/e26049_uber-8k.htm"
+      },
+      {
+        "type": "8-K",
+        "date": "2026-02-04",
+        "title": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000011/uber-20260130.htm"
+      },
+      {
+        "type": "8-K",
+        "date": "2026-01-12",
+        "title": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000005/uber-20260112.htm"
+      },
+      {
+        "type": "10-Q",
+        "date": "2025-11-04",
+        "title": "10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315125000033/uber-20250930.htm"
+      }
+    ],
+    "DASH": [
+      {
+        "type": "10-K",
+        "date": "2026-02-18",
+        "title": "10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1792789/000179278926000013/dash-20251231.htm"
+      },
+      {
+        "type": "8-K",
+        "date": "2026-02-18",
+        "title": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1792789/000179278926000012/dash-20260218.htm"
+      },
+      {
+        "type": "8-K",
+        "date": "2026-01-20",
+        "title": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1792789/000179278926000003/dash-20260116.htm"
+      },
+      {
+        "type": "10-Q",
+        "date": "2025-11-06",
+        "title": "10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1792789/000179278925000020/dash-20250930.htm"
+      },
+      {
+        "type": "8-K",
+        "date": "2025-11-05",
+        "title": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1792789/000179278925000018/dash-20251105.htm"
+      }
+    ],
+    "ASML": [
+      {
+        "type": "6-K",
+        "date": "2026-03-11",
+        "title": "6-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026016671/form6-kagm.htm"
+      },
+      {
+        "type": "20-F",
+        "date": "2026-02-25",
+        "title": "20-F",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm"
+      },
+      {
+        "type": "6-K",
+        "date": "2026-02-25",
+        "title": "6-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011377/form6-kannualreportbasedon.htm"
+      },
+      {
+        "type": "6-K",
+        "date": "2026-01-28",
+        "title": "6-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/form6-kquarterlyfilings.htm"
+      },
+      {
+        "type": "6-K",
+        "date": "2025-10-15",
+        "title": "6-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025045043/form6-kquarterlyfilings.htm"
+      }
+    ],
     "ELAL.TA": []
   }
 }
