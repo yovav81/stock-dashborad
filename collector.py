@@ -13,6 +13,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 WATCHLIST_FILE = os.path.join(BASE_DIR, "watchlist.json")
 OUTPUT_FILE = os.path.join(BASE_DIR, "dashboard-data.json")
 
+SEC_HEADERS = {
+    "User-Agent": "stock-dashboard/1.0 your-email@example.com",
+    "Accept-Encoding": "gzip, deflate",
+    "Host": "data.sec.gov",
+}
+
 
 def get_date_ranges():
     today = datetime.datetime.utcnow().date()
@@ -146,11 +152,76 @@ def fetch_news(company_name: str, ticker: str):
     return articles
 
 
-def fetch_filings_us(ticker: str):
-    return []
+def fetch_sec_company_tickers():
+    url = "https://www.sec.gov/files/company_tickers.json"
+    resp = requests.get(url, headers=SEC_HEADERS, timeout=30)
+    resp.raise_for_status()
+    data = resp.json()
+
+    mapping = {}
+    for _, item in data.items():
+        ticker = item.get("ticker", "").upper()
+        cik = str(item.get("cik_str", "")).zfill(10)
+        if ticker:
+            mapping[ticker] = cik
+    return mapping
+
+
+def build_sec_filing_url(accession_number: str, primary_document: str):
+    accession_nodash = accession_number.replace("-", "")
+    cik_no_leading = str(int(accession_nodash[:10])) if accession_nodash[:10].isdigit() else None
+    if cik_no_leading is None:
+        return None
+    return f"https://www.sec.gov/Archives/edgar/data/{cik_no_leading}/{accession_nodash}/{primary_document}"
+
+
+def fetch_filings_us(ticker: str, ticker_to_cik: dict):
+    cik = ticker_to_cik.get(ticker.upper())
+    if not cik:
+        print(f"No CIK found for {ticker}")
+        return []
+
+    url = f"https://data.sec.gov/submissions/CIK{cik}.json"
+    try:
+        resp = requests.get(url, headers=SEC_HEADERS, timeout=30)
+        resp.raise_for_status()
+        data = resp.json()
+    except Exception as e:
+        print(f"SEC filings fetch failed for {ticker}: {e}")
+        return []
+
+    recent = data.get("filings", {}).get("recent", {})
+    forms = recent.get("form", [])
+    dates = recent.get("filingDate", [])
+    accessions = recent.get("accessionNumber", [])
+    primary_docs = recent.get("primaryDocument", [])
+
+    wanted_forms = {"10-K", "10-Q", "8-K", "20-F", "6-K", "S-1", "DEF 14A"}
+    filings = []
+
+    for form, filing_date, accession, primary_doc in zip(forms, dates, accessions, primary_docs):
+        if form not in wanted_forms:
+            continue
+
+        filing_url = build_sec_filing_url(accession, primary_doc)
+        filings.append(
+            {
+                "type": form,
+                "date": filing_date,
+                "title": form,
+                "url": filing_url or f"https://www.sec.gov/edgar/browse/?CIK={ticker}",
+            }
+        )
+
+        if len(filings) >= 5:
+            break
+
+    print(f"{ticker}: loaded {len(filings)} SEC filings")
+    return filings
 
 
 def fetch_filings_il(ticker: str):
+    # השלב הבא: חיבור רשמי ל-TASE Data Hub / MAYA
     return []
 
 
@@ -163,6 +234,9 @@ def main():
     performance = []
     news = {}
     filings = {}
+
+    us_tickers = [item["ticker"] for item in watchlist if item.get("market", "US").upper() == "US"]
+    ticker_to_cik = fetch_sec_company_tickers() if us_tickers else {}
 
     for item in watchlist:
         ticker = item["ticker"]
@@ -189,7 +263,7 @@ def main():
             news[ticker] = []
 
         if market.upper() == "US":
-            filings[ticker] = fetch_filings_us(ticker)
+            filings[ticker] = fetch_filings_us(ticker, ticker_to_cik)
         elif market.upper() == "IL":
             filings[ticker] = fetch_filings_il(ticker)
         else:
