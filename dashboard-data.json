@@ -1,26 +1,26 @@
 {
-  "updated_at": "2026-03-12T23:57:20.426356+00:00",
+  "updated_at": "2026-03-13T00:10:43.236734+00:00",
   "performance": [
     {
       "ticker": "UBER",
-      "week_change_pct": -3.27,
-      "month_change_pct": -3.25,
-      "ytd_change_pct": -10.7
+      "week_change_pct": 0.0,
+      "month_change_pct": 0.0,
+      "ytd_change_pct": 0.0
     },
     {
       "ticker": "DASH",
-      "week_change_pct": -11.84,
-      "month_change_pct": -8.34,
-      "ytd_change_pct": -28.58
+      "week_change_pct": 0.0,
+      "month_change_pct": 0.0,
+      "ytd_change_pct": 0.0
     },
     {
       "ticker": "ASML",
-      "week_change_pct": -1.23,
-      "month_change_pct": -6.82,
-      "ytd_change_pct": 26.5
+      "week_change_pct": 0.0,
+      "month_change_pct": 0.0,
+      "ytd_change_pct": 0.0
     },
     {
-      "ticker": "ELAL",
+      "ticker": "ELAL.TA",
       "week_change_pct": 0.0,
       "month_change_pct": 0.0,
       "ytd_change_pct": 0.0
@@ -30,12 +30,12 @@
     "UBER": [],
     "DASH": [],
     "ASML": [],
-    "ELAL": []
+    "ELAL.TA": []
   },
   "filings": {
     "UBER": [],
     "DASH": [],
     "ASML": [],
-    "ELAL": []
+    "ELAL.TA": []
   }
 }
