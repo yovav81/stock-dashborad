@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-13T10:12:38.015572+00:00",
+  "updated_at": "2026-03-13T10:16:14.297758+00:00",
   "performance": [
     {
       "ticker": "UBER",
@@ -21,9 +21,9 @@
     },
     {
       "ticker": "ELAL.TA",
-      "week_change_pct": -6.02,
-      "month_change_pct": -14.02,
-      "ytd_change_pct": -18.66
+      "week_change_pct": -5.88,
+      "month_change_pct": -13.89,
+      "ytd_change_pct": -18.53
     }
   ],
   "news": {
