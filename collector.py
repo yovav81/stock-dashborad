@@ -14,7 +14,7 @@ WATCHLIST_FILE = os.path.join(BASE_DIR, "watchlist.json")
 OUTPUT_FILE = os.path.join(BASE_DIR, "dashboard-data.json")
 
 SEC_HEADERS = {
-    "User-Agent": "stock-dashboard your-real-email@example.com",
+    "User-Agent": "stock-dashboard yovav81@gmail.com",
     "Accept-Encoding": "gzip, deflate",
 }
 
