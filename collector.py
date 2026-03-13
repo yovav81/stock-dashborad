@@ -25,31 +25,31 @@ def get_date_ranges():
 def fetch_prices(ticker):
     print(f"Fetching prices for {ticker}")
 
-    hist = yf.download(
-        ticker,
-        period="1y",
-        interval="1d",
-        auto_adjust=True,
-        progress=False,
-        threads=False,
-    )
+    try:
+        hist = yf.Ticker(ticker).history(period="1y", interval="1d", auto_adjust=True)
+    except Exception as e:
+        print(f"yfinance failed for {ticker}: {e}")
+        return {}
 
     if hist is None or hist.empty:
         print(f"No price data returned for {ticker}")
         return {}
 
-    data = {}
-
-    try:
-        close_series = hist["Close"]
-    except Exception:
-        print(f"Could not find Close column for {ticker}. Columns: {list(hist.columns)}")
+    if "Close" not in hist.columns:
+        print(f"No Close column for {ticker}. Columns: {list(hist.columns)}")
         return {}
 
-    for date, price in close_series.items():
-        date_str = str(date)[:10]
+    data = {}
+
+    for idx, row in hist.iterrows():
         try:
-            data[date_str] = {"close": float(price)}
+            date_str = idx.strftime("%Y-%m-%d")
+        except Exception:
+            date_str = str(idx)[:10]
+
+        try:
+            close_val = float(row["Close"])
+            data[date_str] = {"close": close_val}
         except Exception as e:
             print(f"Skipping row for {ticker} on {date_str}: {e}")
 
@@ -122,12 +122,12 @@ def fetch_news(company_name, ticker):
     try:
         resp = requests.get(url, params=params, headers=headers, timeout=30)
         print(f"News API status for {ticker}: {resp.status_code}")
-        print(f"News API response preview for {ticker}: {resp.text[:300]}")
     except Exception as e:
         print(f"News request failed for {ticker}: {e}")
         return []
 
     if resp.status_code != 200:
+        print(f"News API error for {ticker}: {resp.text[:300]}")
         return []
 
     try:
