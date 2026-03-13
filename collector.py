@@ -22,15 +22,29 @@ def get_date_ranges():
 
 
 def fetch_prices(ticker):
-    hist = yf.download(ticker, period="1y", interval="1d", auto_adjust=True, progress=False)
+    print(f"Fetching prices for {ticker}")
+
+    hist = yf.download(
+        ticker,
+        period="1y",
+        interval="1d",
+        auto_adjust=True,
+        progress=False,
+    )
+
     if hist.empty:
+        print("No data")
         return {}
 
     data = {}
-    for idx, row in hist.iterrows():
-        date_str = idx.strftime("%Y-%m-%d")
-        close_val = float(row["Close"])
-        data[date_str] = {"close": close_val}
+
+    close_series = hist["Close"]
+
+    for date, price in close_series.items():
+        date_str = date.strftime("%Y-%m-%d")
+        data[date_str] = {"close": float(price)}
+
+    print(f"{ticker}: {len(data)} rows loaded")
     return data
 
 
