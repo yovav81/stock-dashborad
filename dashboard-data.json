@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-03-13T14:33:19.584653+00:00",
+  "updated_at": "2026-03-13T14:43:36.968500+00:00",
   "performance": [
     {
       "ticker": "UBER",
-      "week_change_pct": -0.67,
-      "month_change_pct": -1.05,
-      "ytd_change_pct": -8.67
+      "week_change_pct": -0.69,
+      "month_change_pct": -1.07,
+      "ytd_change_pct": -8.68
     },
     {
       "ticker": "DASH",
-      "week_change_pct": -7.98,
-      "month_change_pct": -6.57,
-      "ytd_change_pct": -27.2
+      "week_change_pct": -8.53,
+      "month_change_pct": -7.13,
+      "ytd_change_pct": -27.64
     },
     {
       "ticker": "ASML",
-      "week_change_pct": 6.24,
-      "month_change_pct": -5.31,
-      "ytd_change_pct": 28.55
+      "week_change_pct": 5.69,
+      "month_change_pct": -5.81,
+      "ytd_change_pct": 27.88
     },
     {
       "ticker": "ELAL.TA",
@@ -61,6 +61,12 @@
     ],
     "DASH": [
       {
+        "title": "Sobeys parent Empire reports net loss in third quarter",
+        "source": "Financial Post",
+        "published_at": "2026-03-12T14:36:01Z",
+        "url": "https://financialpost.com/news/retail-marketing/sobeys-empire-reports-net-loss"
+      },
+      {
         "title": "Chargers sign ex-Ravens RB Keaton Mitchell to 2-year deal",
         "source": "Bolts From The Blue",
         "published_at": "2026-03-12T14:22:23Z",
@@ -83,12 +89,6 @@
         "source": "Business Insider",
         "published_at": "2026-03-12T13:55:51Z",
         "url": "https://www.businessinsider.com/every-a113-easter-egg-pixar-movies"
-      },
-      {
-        "title": "WestJet, Porter fined tens of thousands over delays, not giving flyers enough food and drink",
-        "source": "National Post",
-        "published_at": "2026-03-12T13:53:37Z",
-        "url": "https://nationalpost.com/news/westjet-porter-fined-tens-of-thousands-over-delays-not-giving-flyers-enough-food-and-drink"
       }
     ],
     "ASML": [
