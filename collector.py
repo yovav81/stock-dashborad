@@ -41,8 +41,8 @@ def fetch_prices(ticker):
     close_series = hist["Close"]
 
     for date, price in close_series.items():
-        date_str = date.strftime("%Y-%m-%d")
-        data[date_str] = {"close": float(price)}
+    date_str = str(date)[:10]
+    data[date_str] = {"close": float(price)}
 
     print(f"{ticker}: {len(data)} rows loaded")
     return data
