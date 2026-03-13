@@ -30,26 +30,44 @@ def fetch_prices(ticker):
         interval="1d",
         auto_adjust=True,
         progress=False,
+        threads=False,
     )
 
-    if hist.empty:
-        print("No data")
+    if hist is None or hist.empty:
+        print(f"No price data returned for {ticker}")
         return {}
 
     data = {}
 
-    close_series = hist["Close"]
+    close_col = None
+    for candidate in ["Close", ("Close", ticker)]:
+        if candidate in hist.columns:
+            close_col = candidate
+            break
+
+    if close_col is None:
+        try:
+            close_series = hist["Close"]
+        except Exception:
+            print(f"Could not find Close column for {ticker}. Columns: {list(hist.columns)}")
+            return {}
+    else:
+        close_series = hist[close_col]
 
     for date, price in close_series.items():
-    date_str = str(date)[:10]
-    data[date_str] = {"close": float(price)}
+        date_str = str(date)[:10]
+        try:
+            data[date_str] = {"close": float(price)}
+        except Exception as e:
+            print(f"Skipping row for {ticker} on {date_str}: {e}")
 
-    print(f"{ticker}: {len(data)} rows loaded")
+    print(f"{ticker}: loaded {len(data)} price rows")
     return data
 
 
 def calculate_returns(series, week_ago, month_start, year_start):
     dates = sorted(series.keys(), reverse=True)
+
     if not dates:
         return {
             "week_change_pct": 0.0,
@@ -93,6 +111,7 @@ def calculate_returns(series, week_ago, month_start, year_start):
 
 def fetch_news(company_name, ticker):
     if not NEWS_API_KEY:
+        print(f"No NEWS_API_KEY set. Skipping news for {ticker}")
         return []
 
     query = f"{company_name} OR {ticker}"
@@ -105,7 +124,13 @@ def fetch_news(company_name, ticker):
         f"apiKey={NEWS_API_KEY}"
     )
 
-    resp = requests.get(url, timeout=30)
+    try:
+        resp = requests.get(url, timeout=30)
+        print(f"News API status for {ticker}: {resp.status_code}")
+    except Exception as e:
+        print(f"News request failed for {ticker}: {e}")
+        return []
+
     articles = []
     if resp.status_code == 200:
         for article in resp.json().get("articles", []):
@@ -117,6 +142,9 @@ def fetch_news(company_name, ticker):
                     "url": article.get("url"),
                 }
             )
+    else:
+        print(f"News API returned non-200 for {ticker}: {resp.text[:300]}")
+
     return articles
 
 
@@ -143,11 +171,25 @@ def main():
         market = item.get("market", "US")
         company_name = item.get("company", ticker)
 
-        price_series = fetch_prices(ticker)
-        returns = calculate_returns(price_series, week_ago, month_start, year_start)
+        try:
+            price_series = fetch_prices(ticker)
+            returns = calculate_returns(price_series, week_ago, month_start, year_start)
+        except Exception as e:
+            print(f"Price processing failed for {ticker}: {e}")
+            returns = {
+                "week_change_pct": 0.0,
+                "month_change_pct": 0.0,
+                "ytd_change_pct": 0.0,
+            }
+
+        print(f"{ticker} returns: {returns}")
         performance.append({"ticker": ticker, **returns})
 
-        news[ticker] = fetch_news(company_name, ticker)
+        try:
+            news[ticker] = fetch_news(company_name, ticker)
+        except Exception as e:
+            print(f"News fetch failed for {ticker}: {e}")
+            news[ticker] = []
 
         if market.upper() == "US":
             filings[ticker] = fetch_filings_us(ticker)
