@@ -3,6 +3,7 @@ import json
 import os
 import datetime
 from datetime import timezone
+
 import requests
 import yfinance as yf
 
@@ -39,20 +40,11 @@ def fetch_prices(ticker):
 
     data = {}
 
-    close_col = None
-    for candidate in ["Close", ("Close", ticker)]:
-        if candidate in hist.columns:
-            close_col = candidate
-            break
-
-    if close_col is None:
-        try:
-            close_series = hist["Close"]
-        except Exception:
-            print(f"Could not find Close column for {ticker}. Columns: {list(hist.columns)}")
-            return {}
-    else:
-        close_series = hist[close_col]
+    try:
+        close_series = hist["Close"]
+    except Exception:
+        print(f"Could not find Close column for {ticker}. Columns: {list(hist.columns)}")
+        return {}
 
     for date, price in close_series.items():
         date_str = str(date)[:10]
@@ -114,37 +106,48 @@ def fetch_news(company_name, ticker):
         print(f"No NEWS_API_KEY set. Skipping news for {ticker}")
         return []
 
-    query = f"{company_name} OR {ticker}"
-    url = (
-        "https://newsapi.org/v2/everything?"
-        f"q={requests.utils.quote(query)}&"
-        "language=en&"
-        "sortBy=publishedAt&"
-        "pageSize=5&"
-        f"apiKey={NEWS_API_KEY}"
-    )
+    url = "https://newsapi.org/v2/everything"
+    params = {
+        "q": f"\"{company_name}\" OR {ticker}",
+        "language": "en",
+        "sortBy": "publishedAt",
+        "pageSize": 5,
+        "apiKey": NEWS_API_KEY,
+    }
+
+    headers = {
+        "User-Agent": "stock-dashboard/1.0"
+    }
 
     try:
-        resp = requests.get(url, timeout=30)
+        resp = requests.get(url, params=params, headers=headers, timeout=30)
         print(f"News API status for {ticker}: {resp.status_code}")
+        print(f"News API response preview for {ticker}: {resp.text[:300]}")
     except Exception as e:
         print(f"News request failed for {ticker}: {e}")
         return []
 
-    articles = []
-    if resp.status_code == 200:
-        for article in resp.json().get("articles", []):
-            articles.append(
-                {
-                    "title": article.get("title"),
-                    "source": article.get("source", {}).get("name"),
-                    "published_at": article.get("publishedAt"),
-                    "url": article.get("url"),
-                }
-            )
-    else:
-        print(f"News API returned non-200 for {ticker}: {resp.text[:300]}")
+    if resp.status_code != 200:
+        return []
 
+    try:
+        payload = resp.json()
+    except Exception as e:
+        print(f"Could not parse news JSON for {ticker}: {e}")
+        return []
+
+    articles = []
+    for article in payload.get("articles", []):
+        articles.append(
+            {
+                "title": article.get("title"),
+                "source": article.get("source", {}).get("name"),
+                "published_at": article.get("publishedAt"),
+                "url": article.get("url"),
+            }
+        )
+
+    print(f"{ticker}: loaded {len(articles)} news articles")
     return articles
 
 
