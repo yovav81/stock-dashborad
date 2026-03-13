@@ -153,7 +153,7 @@ def fetch_news(company_name: str, ticker: str):
 
 
 def fetch_sec_company_tickers():
-    url = "https://data.sec.gov/files/company_tickers.json"
+    url = "https://www.sec.gov/files/company_tickers.json"
 
     resp = requests.get(url, headers=SEC_HEADERS, timeout=30)
     resp.raise_for_status()
@@ -223,7 +223,6 @@ def fetch_filings_us(ticker: str, ticker_to_cik: dict):
 
 
 def fetch_filings_il(ticker: str):
-    # שלב הבא: חיבור ל-TASE / MAYA
     return []
 
 
