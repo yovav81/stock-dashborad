@@ -14,9 +14,8 @@ WATCHLIST_FILE = os.path.join(BASE_DIR, "watchlist.json")
 OUTPUT_FILE = os.path.join(BASE_DIR, "dashboard-data.json")
 
 SEC_HEADERS = {
-    "User-Agent": "stock-dashboard/1.0 your-email@example.com",
+    "User-Agent": "stock-dashboard your-real-email@example.com",
     "Accept-Encoding": "gzip, deflate",
-    "Host": "data.sec.gov",
 }
 
 
@@ -46,6 +45,7 @@ def fetch_prices(ticker: str):
         return {}
 
     data = {}
+
     for idx, row in hist.iterrows():
         try:
             date_str = idx.strftime("%Y-%m-%d")
@@ -153,25 +153,26 @@ def fetch_news(company_name: str, ticker: str):
 
 
 def fetch_sec_company_tickers():
-    url = "https://www.sec.gov/files/company_tickers.json"
+    url = "https://data.sec.gov/files/company_tickers.json"
+
     resp = requests.get(url, headers=SEC_HEADERS, timeout=30)
     resp.raise_for_status()
     data = resp.json()
 
     mapping = {}
-    for _, item in data.items():
+    for item in data.values():
         ticker = item.get("ticker", "").upper()
         cik = str(item.get("cik_str", "")).zfill(10)
         if ticker:
             mapping[ticker] = cik
+
+    print(f"Loaded {len(mapping)} SEC ticker->CIK mappings")
     return mapping
 
 
-def build_sec_filing_url(accession_number: str, primary_document: str):
+def build_sec_filing_url(cik: str, accession_number: str, primary_document: str):
+    cik_no_leading = str(int(cik))
     accession_nodash = accession_number.replace("-", "")
-    cik_no_leading = str(int(accession_nodash[:10])) if accession_nodash[:10].isdigit() else None
-    if cik_no_leading is None:
-        return None
     return f"https://www.sec.gov/Archives/edgar/data/{cik_no_leading}/{accession_nodash}/{primary_document}"
 
 
@@ -182,6 +183,7 @@ def fetch_filings_us(ticker: str, ticker_to_cik: dict):
         return []
 
     url = f"https://data.sec.gov/submissions/CIK{cik}.json"
+
     try:
         resp = requests.get(url, headers=SEC_HEADERS, timeout=30)
         resp.raise_for_status()
@@ -203,13 +205,13 @@ def fetch_filings_us(ticker: str, ticker_to_cik: dict):
         if form not in wanted_forms:
             continue
 
-        filing_url = build_sec_filing_url(accession, primary_doc)
+        filing_url = build_sec_filing_url(cik, accession, primary_doc)
         filings.append(
             {
                 "type": form,
                 "date": filing_date,
                 "title": form,
-                "url": filing_url or f"https://www.sec.gov/edgar/browse/?CIK={ticker}",
+                "url": filing_url,
             }
         )
 
@@ -221,7 +223,7 @@ def fetch_filings_us(ticker: str, ticker_to_cik: dict):
 
 
 def fetch_filings_il(ticker: str):
-    # השלב הבא: חיבור רשמי ל-TASE Data Hub / MAYA
+    # שלב הבא: חיבור ל-TASE / MAYA
     return []
 
 
@@ -235,7 +237,12 @@ def main():
     news = {}
     filings = {}
 
-    us_tickers = [item["ticker"] for item in watchlist if item.get("market", "US").upper() == "US"]
+    us_tickers = [
+        item["ticker"]
+        for item in watchlist
+        if item.get("market", "US").upper() == "US"
+    ]
+
     ticker_to_cik = fetch_sec_company_tickers() if us_tickers else {}
 
     for item in watchlist:
