@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-03-13T14:43:36.968500+00:00",
+  "updated_at": "2026-03-14T07:51:12.131634+00:00",
   "performance": [
     {
       "ticker": "UBER",
-      "week_change_pct": -0.69,
-      "month_change_pct": -1.07,
-      "ytd_change_pct": -8.68
+      "week_change_pct": -2.4,
+      "month_change_pct": -2.77,
+      "ytd_change_pct": -10.26
     },
     {
       "ticker": "DASH",
-      "week_change_pct": -8.53,
-      "month_change_pct": -7.13,
-      "ytd_change_pct": -27.64
+      "week_change_pct": -9.94,
+      "month_change_pct": -8.56,
+      "ytd_change_pct": -28.75
     },
     {
       "ticker": "ASML",
-      "week_change_pct": 5.69,
-      "month_change_pct": -5.81,
-      "ytd_change_pct": 27.88
+      "week_change_pct": 4.09,
+      "month_change_pct": -7.23,
+      "ytd_change_pct": 25.95
     },
     {
       "ticker": "ELAL.TA",
@@ -29,69 +29,75 @@
   "news": {
     "UBER": [
       {
-        "title": "Markets/Coverages: Marsh Risk, Apollo Develop Insurance Facility for Uber",
-        "source": "Insurance Journal",
-        "published_at": "2026-03-12T14:13:17Z",
-        "url": "https://www.insurancejournal.com/news/national/2026/03/12/861638.htm"
+        "title": "Gemini\u2019s task automation is now available on the Galaxy S26",
+        "source": "SamMobile",
+        "published_at": "2026-03-13T07:46:21Z",
+        "url": "https://www.sammobile.com/news/galaxy-s26-gemini-task-automation-now-live/"
       },
       {
-        "title": "Rylee Arnold Reveals How BYU Football Boyfriend Got Her Phone Number With Extremely Simple DM",
-        "source": "BroBible",
-        "published_at": "2026-03-12T13:37:00Z",
-        "url": "https://brobible.com/culture/article/rylee-arnold-who-is-boyfriend-walker-lyons-first-dm-instagram-uber/"
+        "title": "Ready for take-off: experimental air-taxi spotted in skies over Oakland",
+        "source": "Freerepublic.com",
+        "published_at": "2026-03-13T06:19:32Z",
+        "url": "https://freerepublic.com/focus/f-chat/4370452/posts"
       },
       {
-        "title": "Rapido's new backer; Blinkit gets funding boost",
-        "source": "The Times of India",
-        "published_at": "2026-03-12T13:35:28Z",
-        "url": "https://economictimes.indiatimes.com/tech/newsletters/tech-top-5/rapidos-new-backer-blinkit-gets-funding-boost/articleshow/129509657.cms"
+        "title": "Why Technology Makes Us More Productive but Not Richer",
+        "source": "Fullstackpm.tech",
+        "published_at": "2026-03-13T05:06:36Z",
+        "url": "https://fullstackpm.tech/blog/productivity-paradox-capital-lockup"
       },
       {
-        "title": "7-Eleven Pi Day Deal for Any pizza for $3.14 on March 14",
-        "source": "Dealnews.com",
-        "published_at": "2026-03-12T13:13:08Z",
-        "url": "https://www.dealnews.com/7-Eleven-Pi-Day-Deal-for-Any-pizza-for-3-14-on-March-14/21815691.html"
+        "title": "Beyond Glamour: The Staples Baddie",
+        "source": "Gapingvoid.com",
+        "published_at": "2026-03-13T04:57:21Z",
+        "url": "https://www.gapingvoid.com/beyond-glamour-the-staples-baddie/"
       },
       {
-        "title": "40 Years of Wireless Evolution Leads to a Smart, Sensing Network",
-        "source": "Ieee.org",
-        "published_at": "2026-03-12T13:00:03Z",
-        "url": "https://spectrum.ieee.org/telecom-history-1g-to-6g"
+        "title": "A Third-Party Promo Gone Awry; OpenAI Has An App For That",
+        "source": "AdExchanger",
+        "published_at": "2026-03-13T04:03:47Z",
+        "url": "http://www.adexchanger.com/daily-news-roundup/friday-13032026/"
       }
     ],
     "DASH": [
       {
-        "title": "Sobeys parent Empire reports net loss in third quarter",
-        "source": "Financial Post",
-        "published_at": "2026-03-12T14:36:01Z",
-        "url": "https://financialpost.com/news/retail-marketing/sobeys-empire-reports-net-loss"
+        "title": "Man (80s) seriously injured after being struck by bus in Bray",
+        "source": "TheJournal.ie",
+        "published_at": "2026-03-13T07:49:15Z",
+        "url": "https://www.thejournal.ie/man-injured-bus-bray-wicklow-6983882-Mar2026/"
       },
       {
-        "title": "Chargers sign ex-Ravens RB Keaton Mitchell to 2-year deal",
-        "source": "Bolts From The Blue",
-        "published_at": "2026-03-12T14:22:23Z",
-        "url": "https://www.boltsfromtheblue.com/los-angeles-chargers-news/63381/chargers-sign-ex-ravens-rb-keaton-mitchell-to-2-year-deal"
+        "title": "ml-dash 0.6.20",
+        "source": "Pypi.org",
+        "published_at": "2026-03-13T07:24:56Z",
+        "url": "https://pypi.org/project/ml-dash/0.6.20/"
       },
       {
-        "title": "Today\u2019s Hot Deals: TurboTax Deluxe Tax Software (Federal & State), Nothing Ear (a) Wireless Earbuds, Razer Seiren V3 Microphone, Burrito and Pizza Throw Blankets, and MORE!",
-        "source": "Geeksaresexy.net",
-        "published_at": "2026-03-12T14:10:57Z",
-        "url": "https://www.geeksaresexy.net/2026/03/12/todays-hot-deals-turbotax-deluxe-tax-software-federal-state-nothing-ear-a-wireless-earbuds-razer-seiren-v3-microphone-burrito-and-pizza-throw-blankets-and-more/"
+        "title": "\u2018All sacrifices of work culminate in knowledge\u2019: Orissa High Court invokes Bhagavad Gita, orders peon\u2019s promotion",
+        "source": "The Indian Express",
+        "published_at": "2026-03-13T07:17:46Z",
+        "url": "https://indianexpress.com/article/legal-news/orissa-high-court-peon-promotion-gita-shakespeare-judgment-10579579/"
       },
       {
-        "title": "2018 Porsche Panamera Turbo Sport Turismo",
-        "source": "Bringatrailer.com",
-        "published_at": "2026-03-12T14:05:07Z",
-        "url": "https://bringatrailer.com/listing/2018-porsche-panamera-turbo-20/"
+        "title": "Billionaire Vinod Khosla says \u2018follow your passion\u2019 is bad career advice for kids today\u2014but could be the best in 15 years",
+        "source": "Fortune",
+        "published_at": "2026-03-13T07:04:00Z",
+        "url": "https://fortune.com/2026/03/13/vinod-khosla-gen-z-gen-alpha-best-career-advice-follow-your-passion-secret-for-success/"
       },
       {
-        "title": "Every A113 we could find in Pixar movies, including 'Hoppers'",
-        "source": "Business Insider",
-        "published_at": "2026-03-12T13:55:51Z",
-        "url": "https://www.businessinsider.com/every-a113-easter-egg-pixar-movies"
+        "title": "Eagles-only mock draft: Howie Roseman goes heavy on offense",
+        "source": "Nbcsportsphiladelphia.com",
+        "published_at": "2026-03-13T07:00:00Z",
+        "url": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-only-mock-draft-howie-roseman-goes-heavy-on-offense/720566/?partner=yahoo"
       }
     ],
     "ASML": [
+      {
+        "title": "IBM and Lam's new partnership paves the way toward sub-1nm logic using High-NA EUV \u2014 Albany lab to pioneer dry resist process integration",
+        "source": "Tom's Hardware UK",
+        "published_at": "2026-03-12T17:14:55Z",
+        "url": "https://www.tomshardware.com/tech-industry/semiconductors/ibm-and-lam-team-up-on-high-na-euv"
+      },
       {
         "title": "How Retirees Are Using ESGD to Pair ESG Values With International Dividend Income",
         "source": "24/7 Wall St.",
@@ -115,12 +121,6 @@
         "source": "Yahoo Entertainment",
         "published_at": "2026-03-10T11:00:20Z",
         "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_f4cc3d1b-f013-4bf1-a2ba-2a4bf2bf155c"
-      },
-      {
-        "title": "The Myth of AI Sovereignty",
-        "source": "Foreign Policy",
-        "published_at": "2026-03-09T10:00:32Z",
-        "url": "http://foreignpolicy.com/2026/03/09/artificial-intelligence-ai-sovereignty-taiwan-semiconductor-manufacturing-tsmc-chip-supply-chain-united-states-china/"
       }
     ],
     "ELAL.TA": [
