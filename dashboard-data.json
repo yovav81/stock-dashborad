@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-15T07:56:06.657675+00:00",
+  "updated_at": "2026-03-15T14:50:53.563031+00:00",
   "performance": [
     {
       "ticker": "UBER",
@@ -29,66 +29,36 @@
   "news": {
     "UBER": [
       {
-        "title": "Uber founder Travis Kalanick rebrands existing venture to Atoms with focus on robotics",
-        "source": "The Times of India",
-        "published_at": "2026-03-14T07:51:58Z",
-        "url": "https://economictimes.indiatimes.com/tech/technology/uber-founder-travis-kalanick-rebrands-existing-venture-to-atoms-with-focus-on-robotics/articleshow/129570949.cms"
+        "title": "How to use the new ChatGPT app integrations, including DoorDash, Spotify, Uber, and others | TechCrunch",
+        "source": "TechCrunch",
+        "published_at": "2026-03-14T13:00:00Z",
+        "url": "https://techcrunch.com/2026/03/14/how-to-use-the-new-chatgpt-app-integrations-including-doordash-spotify-uber-and-others/"
       },
       {
-        "title": "UK resident unable to get home as flight prices rise above $10K",
-        "source": "ABC News (AU)",
-        "published_at": "2026-03-14T03:27:56Z",
-        "url": "https://www.abc.net.au/news/2026-03-14/foreigner-visit-australia-unable-to-get-home-middle-east-flights/106441922"
+        "title": "How Alfred the service dog changes the rights of Lyft riders nationwide",
+        "source": "Fortune",
+        "published_at": "2026-03-14T12:42:35Z",
+        "url": "https://fortune.com/2026/03/14/how-alfred-the-service-dog-changes-the-rights-of-lyft-riders-nationwide/"
       },
       {
-        "title": "Uber cofounder Kalanick launches Atoms in specialised robotics push",
-        "source": "The Times of India",
-        "published_at": "2026-03-14T03:23:21Z",
-        "url": "https://economictimes.indiatimes.com/tech/technology/uber-cofounder-kalanick-launches-atoms-in-specialised-robotics-push/articleshow/129568181.cms"
-      },
-      {
-        "title": "Travis Kalanick launches a new company called Atoms focused on robotics - TechCrunch",
-        "source": "Slashdot.org",
-        "published_at": "2026-03-14T01:52:51Z",
-        "url": "https://slashdot.org/firehose.pl?op=view&amp;id=180981772"
-      },
-      {
-        "title": "Uber co-founder Travis Kalanick launches robotics venture Atoms",
-        "source": "SiliconANGLE News",
-        "published_at": "2026-03-14T01:41:16Z",
-        "url": "https://siliconangle.com/2026/03/13/uber-co-founder-travis-kalanick-launches-robotics-venture-atoms/"
+        "title": "Former Uber CEO Travis Kalanick said he moved to Texas, joining a growing list of tech billionaires leaving California",
+        "source": "Business Insider",
+        "published_at": "2026-03-14T10:49:01Z",
+        "url": "https://www.businessinsider.com/former-uber-ceo-travis-kalanick-said-he-moved-to-texas-2026-3"
       }
     ],
     "DASH": [
       {
-        "title": "Michael Healy-Rae: What does \u2018Ireland\u2019s wealthiest TD\u2019 own and what is it worth?",
-        "source": "The Irish Times",
-        "published_at": "2026-03-14T06:00:00Z",
-        "url": "https://www.irishtimes.com/politics/2026/03/14/michael-healy-rae-what-does-irelands-wealthiest-td-own-and-what-is-it-worth/"
+        "title": "Girl, 15, killed in three-vehicle motorbike crash with boy arrested",
+        "source": "Sky.com",
+        "published_at": "2026-03-14T14:49:00Z",
+        "url": "https://news.sky.com/story/girl-15-killed-in-motorbike-crash-with-boy-arrested-13519615"
       },
       {
-        "title": "Woman found dead in Cork named locally as garda\u00ed investigating suspicious death",
-        "source": "Independent.ie",
-        "published_at": "2026-03-14T05:30:00Z",
-        "url": "https://www.independent.ie/irish-news/woman-found-dead-in-cork-named-locally-as-gardai-investigating-suspicious-death/a1588538879.html"
-      },
-      {
-        "title": "Facing rockets, Arabs in northern Israel fume over lack of shelters",
-        "source": "The Times of India",
-        "published_at": "2026-03-14T04:38:26Z",
-        "url": "https://economictimes.indiatimes.com/news/defence/facing-rockets-arabs-in-northern-israel-fume-over-lack-of-shelters/articleshow/129568748.cms"
-      },
-      {
-        "title": "What to do for a grumpy hedgehog?",
-        "source": "Lifesciencesworld.com",
-        "published_at": "2026-03-14T03:11:29Z",
-        "url": "https://www.lifesciencesworld.com/what-to-do-for-a-grumpy-hedgehog/"
-      },
-      {
-        "title": "FEATURE FRIDAY: Patty (Hodgson) Gleeson",
-        "source": "Widerightnattylite.com",
-        "published_at": "2026-03-14T03:02:54Z",
-        "url": "https://www.widerightnattylite.com/feature-friday/51082/feature-friday-patty-hodgson-gleeson"
+        "title": "Pi Day 2026: Where to score the best freebies and deals",
+        "source": "The-independent.com",
+        "published_at": "2026-03-14T14:42:22Z",
+        "url": "https://www.the-independent.com/life-style/pi-day-food-deals-free-b2938550.html"
       }
     ],
     "ASML": [
@@ -105,22 +75,10 @@
         "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_872ae8a1-7b79-4c41-ab5c-4532375eaa08"
       },
       {
-        "title": "Europe\u2019s second chance on AI: building an opportunity in factories, labs, and the real economy",
+        "title": "Europe’s second chance on AI: building an opportunity in factories, labs, and the real economy",
         "source": "Fortune",
         "published_at": "2026-03-13T09:30:00Z",
         "url": "https://fortune.com/2026/03/13/europe-ai-next-wave-factories-talent-industrial-strength/"
-      },
-      {
-        "title": "IBM and Lam's new partnership paves the way toward sub-1nm logic using High-NA EUV \u2014 Albany lab to pioneer dry resist process integration",
-        "source": "Tom's Hardware UK",
-        "published_at": "2026-03-12T17:14:55Z",
-        "url": "https://www.tomshardware.com/tech-industry/semiconductors/ibm-and-lam-team-up-on-high-na-euv"
-      },
-      {
-        "title": "How Retirees Are Using ESGD to Pair ESG Values With International Dividend Income",
-        "source": "24/7 Wall St.",
-        "published_at": "2026-03-11T08:29:59Z",
-        "url": "https://247wallst.com/investing/2026/03/11/how-retirees-are-using-esgd-to-pair-esg-values-with-international-dividend-income/"
       }
     ],
     "ELAL.TA": [
@@ -141,18 +99,6 @@
         "source": "Paddle Your Own Kanoo",
         "published_at": "2026-03-02T11:17:37Z",
         "url": "https://www.paddleyourownkanoo.com/2026/03/02/el-al-israel-airlines-wants-permission-to-fly-stranded-israelis-to-egypt-and-jordan-where-they-can-then-cross-the-border/"
-      },
-      {
-        "title": "EL AL Halts New Bookings Through March 21st as Israel Prepares Massive Repatriation Effort",
-        "source": "Thebulkheadseat.com",
-        "published_at": "2026-02-28T22:11:03Z",
-        "url": "https://thebulkheadseat.com/el-al-halts-new-bookings-through-march-21st-as-israel-prepares-massive-repatriation-effort/"
-      },
-      {
-        "title": "\u2018Free Palestine\u2019 Stickers Delay El Al Flight From Los Angeles as 140 Suitcases Have To Be Searched For Explosives",
-        "source": "Paddle Your Own Kanoo",
-        "published_at": "2026-02-21T09:21:04Z",
-        "url": "https://www.paddleyourownkanoo.com/2026/02/21/free-palestine-stickers-delay-el-al-flight-from-los-angeles-as-140-suitcases-have-to-be-searched-for-explosives/"
       }
     ]
   },
@@ -175,18 +121,6 @@
         "date": "2026-02-04",
         "title": "8-K",
         "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000011/uber-20260130.htm"
-      },
-      {
-        "type": "8-K",
-        "date": "2026-01-12",
-        "title": "8-K",
-        "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000005/uber-20260112.htm"
-      },
-      {
-        "type": "10-Q",
-        "date": "2025-11-04",
-        "title": "10-Q",
-        "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315125000033/uber-20250930.htm"
       }
     ],
     "DASH": [
@@ -207,18 +141,6 @@
         "date": "2026-01-20",
         "title": "8-K",
         "url": "https://www.sec.gov/Archives/edgar/data/1792789/000179278926000003/dash-20260116.htm"
-      },
-      {
-        "type": "10-Q",
-        "date": "2025-11-06",
-        "title": "10-Q",
-        "url": "https://www.sec.gov/Archives/edgar/data/1792789/000179278925000020/dash-20250930.htm"
-      },
-      {
-        "type": "8-K",
-        "date": "2025-11-05",
-        "title": "8-K",
-        "url": "https://www.sec.gov/Archives/edgar/data/1792789/000179278925000018/dash-20251105.htm"
       }
     ],
     "ASML": [
@@ -239,18 +161,6 @@
         "date": "2026-02-25",
         "title": "6-K",
         "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011377/form6-kannualreportbasedon.htm"
-      },
-      {
-        "type": "6-K",
-        "date": "2026-01-28",
-        "title": "6-K",
-        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/form6-kquarterlyfilings.htm"
-      },
-      {
-        "type": "6-K",
-        "date": "2025-10-15",
-        "title": "6-K",
-        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025045043/form6-kquarterlyfilings.htm"
       }
     ],
     "ELAL.TA": []
