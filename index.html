@@ -1,4 +1,490 @@
-<!--
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stock Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      background: #f7f9fc;
+    }
+
+    header {
+      background-color: #0a3d62;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    main {
+      padding: 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #0a3d62;
+      padding-bottom: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+      background: white;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    th {
+      background-color: #e8f6ff;
+    }
+
+    .positive { color: green; }
+    .negative { color: red; }
+
+    .news-item, .filing-item {
+      border-bottom: 1px solid #eee;
+      padding: 0.5rem 0;
+      background: white;
+    }
+
+    .news-item a, .filing-item a {
+      color: #0a3d62;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .news-item a:hover, .filing-item a:hover {
+      text-decoration: underline;
+    }
+
+    #watchlist-form {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    #watchlist-form input[type="text"] {
+      flex: 1;
+      min-width: 220px;
+      padding: 0.5rem;
+    }
+
+    #watchlist-list {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .watchlist-item {
+      background-color: #e8f6ff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .watchlist-item button {
+      background: none;
+      border: none;
+      color: #a00;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .actions-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .actions-bar button {
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #0a3d62;
+      color: white;
+      font-weight: bold;
+    }
+
+    .actions-bar button:hover {
+      opacity: 0.92;
+    }
+
+    .status-box {
+      background: #fff8dc;
+      border: 1px solid #f0d98c;
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .section-box {
+      background: white;
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state {
+      color: #666;
+      font-style: italic;
+      padding: 0.75rem 0;
+    }
+
+    .updated-at {
+      color: #444;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Stock Performance Dashboard</h1>
+    <div id="updated-at" class="updated-at"></div>
+  </header>
+
+  <main>
+    <div id="status-box" class="status-box"></div>
+
+    <section id="performance-section">
+      <h2>ביצועי מניות</h2>
+      <div class="section-box">
+        <table id="performance-table">
+          <thead>
+            <tr>
+              <th>מניה</th>
+              <th>שבוע</th>
+              <th>מתחילת חודש</th>
+              <th>מתחילת שנה</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div id="performance-empty" class="empty-state" style="display:none;">אין כרגע נתונים להצגה.</div>
+      </div>
+    </section>
+
+    <section id="news-section">
+      <h2>כתבות אחרונות</h2>
+      <div id="news-container" class="section-box"></div>
+    </section>
+
+    <section id="filings-section">
+      <h2>דוחות ודיווחים אחרונים</h2>
+      <div id="filings-container" class="section-box"></div>
+    </section>
+
+    <section id="watchlist-section">
+      <h2>רשימת מניות</h2>
+
+      <form id="watchlist-form" autocomplete="off">
+        <input type="text" id="ticker-input" placeholder="הכנס סימבול מניה, למשל UBER או ELAL.TA" required />
+        <button type="submit">הוסף מניה</button>
+      </form>
+
+      <div class="actions-bar">
+        <button id="refresh-dashboard-btn" type="button">רענן נתונים</button>
+        <button id="reset-view-btn" type="button">נקה תצוגה</button>
+      </div>
+
+      <div id="watchlist-list"></div>
+    </section>
+  </main>
+
+  <script>
+    let watchlist = [];
+    let dashboardData = {
+      performance: [],
+      news: {},
+      filings: {},
+      updated_at: null
+    };
+
+    function showStatus(message, persistent = false) {
+      const box = document.getElementById("status-box");
+      box.textContent = message;
+      box.style.display = "block";
+
+      if (!persistent) {
+        setTimeout(() => {
+          box.style.display = "none";
+        }, 3500);
+      }
+    }
+
+    function setUpdatedAt(updatedAt) {
+      const el = document.getElementById("updated-at");
+      if (!updatedAt) {
+        el.textContent = "";
+        return;
+      }
+
+      try {
+        const d = new Date(updatedAt);
+        el.textContent = `עודכן לאחרונה: ${d.toLocaleString("he-IL")}`;
+      } catch {
+        el.textContent = `עודכן לאחרונה: ${updatedAt}`;
+      }
+    }
+
+    function clearDashboardView(showLoading = false) {
+      const tbody = document.querySelector("#performance-table tbody");
+      tbody.innerHTML = "";
+      document.getElementById("news-container").innerHTML = "";
+      document.getElementById("filings-container").innerHTML = "";
+
+      document.getElementById("performance-empty").style.display = "none";
+
+      if (showLoading) {
+        tbody.innerHTML = `<tr><td colspan="4">Loading...</td></tr>`;
+        document.getElementById("news-container").innerHTML = `<div class="empty-state">Loading...</div>`;
+        document.getElementById("filings-container").innerHTML = `<div class="empty-state">Loading...</div>`;
+      }
+    }
+
+    async function loadWatchlist() {
+      try {
+        const response = await fetch("watchlist.json");
+        if (!response.ok) throw new Error("Failed to load watchlist");
+        watchlist = await response.json();
+        renderWatchlist();
+      } catch (error) {
+        console.error("Error loading watchlist:", error);
+        showStatus("שגיאה בטעינת רשימת המניות", true);
+      }
+    }
+
+    async function fetchDashboardData() {
+      clearDashboardView(true);
+
+      try {
+        const response = await fetch(`dashboard-data.json?t=${Date.now()}`);
+        if (!response.ok) throw new Error("Failed to load dashboard data");
+
+        dashboardData = await response.json();
+        setUpdatedAt(dashboardData.updated_at);
+        renderDashboard();
+        showStatus("הנתונים רועננו בהצלחה");
+      } catch (error) {
+        console.error("Error loading dashboard data:", error);
+        clearDashboardView(false);
+        showStatus("שגיאה בטעינת נתוני הדאשבורד", true);
+      }
+    }
+
+    function renderWatchlist() {
+      const listEl = document.getElementById("watchlist-list");
+      listEl.innerHTML = "";
+
+      watchlist.forEach(item => {
+        const span = document.createElement("span");
+        span.className = "watchlist-item";
+        span.textContent = item.ticker;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "×";
+        removeBtn.title = "הסר מניה";
+        removeBtn.addEventListener("click", () => {
+          watchlist = watchlist.filter(w => w.ticker !== item.ticker);
+          renderWatchlist();
+          clearDashboardView(true);
+          renderDashboard();
+          showStatus(`המניה ${item.ticker} הוסרה מהרשימה. לחץ על "רענן נתונים" אם עדכנת גם את הנתונים מאחורי הקלעים.`);
+        });
+
+        span.appendChild(removeBtn);
+        listEl.appendChild(span);
+      });
+    }
+
+    function getWatchlistTickers() {
+      return watchlist.map(w => w.ticker);
+    }
+
+    function renderPerformance() {
+      const tbody = document.querySelector("#performance-table tbody");
+      const emptyEl = document.getElementById("performance-empty");
+      tbody.innerHTML = "";
+
+      const selectedTickers = getWatchlistTickers();
+      const filtered = (dashboardData.performance || []).filter(item =>
+        selectedTickers.includes(item.ticker)
+      );
+
+      if (!filtered.length) {
+        emptyEl.style.display = "block";
+        return;
+      }
+
+      emptyEl.style.display = "none";
+
+      filtered.forEach(item => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${item.ticker}</strong></td>
+          <td class="${item.week_change_pct >= 0 ? "positive" : "negative"}">${item.week_change_pct.toFixed(2)}%</td>
+          <td class="${item.month_change_pct >= 0 ? "positive" : "negative"}">${item.month_change_pct.toFixed(2)}%</td>
+          <td class="${item.ytd_change_pct >= 0 ? "positive" : "negative"}">${item.ytd_change_pct.toFixed(2)}%</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderNews() {
+      const container = document.getElementById("news-container");
+      container.innerHTML = "";
+
+      const selectedTickers = getWatchlistTickers();
+      let hasAnything = false;
+
+      selectedTickers.forEach(ticker => {
+        const items = (dashboardData.news && dashboardData.news[ticker]) || [];
+        if (!items.length) return;
+
+        hasAnything = true;
+
+        const section = document.createElement("div");
+        const heading = document.createElement("h3");
+        heading.textContent = ticker;
+        section.appendChild(heading);
+
+        items.forEach(article => {
+          const div = document.createElement("div");
+          div.className = "news-item";
+
+          const a = document.createElement("a");
+          a.href = article.url;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.textContent = article.title || "כתבה";
+          div.appendChild(a);
+
+          const meta = document.createElement("div");
+          meta.style.fontSize = "0.85rem";
+          meta.style.color = "#555";
+          meta.textContent = `${article.source || ""} ${article.published_at ? "• " + new Date(article.published_at).toLocaleString("he-IL") : ""}`;
+          div.appendChild(meta);
+
+          section.appendChild(div);
+        });
+
+        container.appendChild(section);
+      });
+
+      if (!hasAnything) {
+        container.innerHTML = `<div class="empty-state">אין כרגע כתבות זמינות עבור המניות שבחרת.</div>`;
+      }
+    }
+
+    function renderFilings() {
+      const container = document.getElementById("filings-container");
+      container.innerHTML = "";
+
+      const selectedTickers = getWatchlistTickers();
+      let hasAnything = false;
+
+      selectedTickers.forEach(ticker => {
+        const items = (dashboardData.filings && dashboardData.filings[ticker]) || [];
+        if (!items.length) return;
+
+        hasAnything = true;
+
+        const section = document.createElement("div");
+        const heading = document.createElement("h3");
+        heading.textContent = ticker;
+        section.appendChild(heading);
+
+        items.forEach(filing => {
+          const div = document.createElement("div");
+          div.className = "filing-item";
+
+          const a = document.createElement("a");
+          a.href = filing.url;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.textContent = `${filing.type || "דיווח"} - ${filing.title || ""}`;
+          div.appendChild(a);
+
+          const meta = document.createElement("div");
+          meta.style.fontSize = "0.85rem";
+          meta.style.color = "#555";
+          meta.textContent = filing.date || "";
+          div.appendChild(meta);
+
+          section.appendChild(div);
+        });
+
+        container.appendChild(section);
+      });
+
+      if (!hasAnything) {
+        container.innerHTML = `<div class="empty-state">אין כרגע דיווחים זמינים עבור המניות שבחרת.</div>`;
+      }
+    }
+
+    function renderDashboard() {
+      clearDashboardView(false);
+      renderPerformance();
+      renderNews();
+      renderFilings();
+    }
+
+    document.getElementById("watchlist-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const tickerInput = document.getElementById("ticker-input");
+      const ticker = tickerInput.value.trim().toUpperCase();
+
+      if (!ticker) return;
+
+      if (!watchlist.some(w => w.ticker === ticker)) {
+        watchlist.push({ ticker });
+        renderWatchlist();
+
+        clearDashboardView(true);
+        renderDashboard();
+
+        showStatus(`המניה ${ticker} נוספה לתצוגה. אם זו מניה חדשה שלא קיימת עדיין בנתונים, לחץ על "רענן נתונים" אחרי שה-collector יעדכן את הקובץ.`);
+      }
+
+      tickerInput.value = "";
+    });
+
+    document.getElementById("refresh-dashboard-btn").addEventListener("click", async () => {
+      await fetchDashboardData();
+    });
+
+    document.getElementById("reset-view-btn").addEventListener("click", () => {
+      clearDashboardView(false);
+      showStatus("התצוגה נוקתה");
+    });
+
+    window.addEventListener("DOMContentLoaded", async () => {
+      await loadWatchlist();
+      await fetchDashboardData();
+    });
+  </script>
+</body>
+</html><!--
   Dashboard page for viewing stock performance, news, and regulatory filings.
   This page expects a JSON file (dashboard-data.json) located in the same directory.
   It also reads a watchlist.json file to determine which tickers to include.
