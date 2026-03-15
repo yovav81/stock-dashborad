@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-15T14:50:53.563031+00:00",
+  "updated_at": "2026-03-15T15:56:43.400461+00:00",
   "performance": [
     {
       "ticker": "UBER",
@@ -29,6 +29,12 @@
   "news": {
     "UBER": [
       {
+        "title": "Billionaire Bill Ackman says he doesn’t like ‘wasting money’—he’ll even drive elsewhere for cheaper garages, despite once owning a parking company",
+        "source": "Fortune",
+        "published_at": "2026-03-14T14:52:03Z",
+        "url": "https://fortune.com/article/frugal-billionaires-bill-ackman-warren-buffett-lucy-guo/"
+      },
+      {
         "title": "How to use the new ChatGPT app integrations, including DoorDash, Spotify, Uber, and others | TechCrunch",
         "source": "TechCrunch",
         "published_at": "2026-03-14T13:00:00Z",
@@ -39,26 +45,20 @@
         "source": "Fortune",
         "published_at": "2026-03-14T12:42:35Z",
         "url": "https://fortune.com/2026/03/14/how-alfred-the-service-dog-changes-the-rights-of-lyft-riders-nationwide/"
-      },
-      {
-        "title": "Former Uber CEO Travis Kalanick said he moved to Texas, joining a growing list of tech billionaires leaving California",
-        "source": "Business Insider",
-        "published_at": "2026-03-14T10:49:01Z",
-        "url": "https://www.businessinsider.com/former-uber-ceo-travis-kalanick-said-he-moved-to-texas-2026-3"
       }
     ],
     "DASH": [
       {
-        "title": "Girl, 15, killed in three-vehicle motorbike crash with boy arrested",
-        "source": "Sky.com",
-        "published_at": "2026-03-14T14:49:00Z",
-        "url": "https://news.sky.com/story/girl-15-killed-in-motorbike-crash-with-boy-arrested-13519615"
+        "title": "Young mother found dead in Co Cork named locally, as gardaí believe she died from accidental fall",
+        "source": "Independent.ie",
+        "published_at": "2026-03-14T15:30:16Z",
+        "url": "https://www.independent.ie/irish-news/young-mother-found-dead-in-co-cork-named-locally-as-gardai-believe-she-died-from-accidental-fall/a1588538879.html"
       },
       {
-        "title": "Pi Day 2026: Where to score the best freebies and deals",
-        "source": "The-independent.com",
-        "published_at": "2026-03-14T14:42:22Z",
-        "url": "https://www.the-independent.com/life-style/pi-day-food-deals-free-b2938550.html"
+        "title": "3 hidden gem NFL prospects whose draft stock skyrocketed at Pro Days",
+        "source": "USA Today",
+        "published_at": "2026-03-14T15:11:54Z",
+        "url": "https://touchdownwire.usatoday.com/story/sports/nfl/touchdown/2026/03/14/3-hidden-gem-nfl-prospects-whose-draft-stock-skyrocketed-at-pro-days/89150224007/"
       }
     ],
     "ASML": [
