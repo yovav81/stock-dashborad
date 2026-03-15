@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-15T16:17:41.673482+00:00",
+  "updated_at": "2026-03-15T17:20:44.998123+00:00",
   "performance": [
     {
       "ticker": "UBER",
@@ -29,6 +29,12 @@
   "news": {
     "UBER": [
       {
+        "title": "The Dark Side of AI: Innocent Grandmother Wrongfully Jailed for 6 Months After Facial Recognition Error",
+        "source": "Freerepublic.com",
+        "published_at": "2026-03-14T16:39:10Z",
+        "url": "https://freerepublic.com/focus/f-news/4370624/posts"
+      },
+      {
         "title": "Inside the newly opened, beachy-chic InterContinental Sydney Coogee Beach",
         "source": "The Points Guy",
         "published_at": "2026-03-14T16:00:10Z",
@@ -39,26 +45,26 @@
         "source": "Fortune",
         "published_at": "2026-03-14T14:52:03Z",
         "url": "https://fortune.com/article/frugal-billionaires-bill-ackman-warren-buffett-lucy-guo/"
-      },
-      {
-        "title": "How to use the new ChatGPT app integrations, including DoorDash, Spotify, Uber, and others | TechCrunch",
-        "source": "TechCrunch",
-        "published_at": "2026-03-14T13:00:00Z",
-        "url": "https://techcrunch.com/2026/03/14/how-to-use-the-new-chatgpt-app-integrations-including-doordash-spotify-uber-and-others/"
       }
     ],
     "DASH": [
       {
-        "title": "2026 NFL Mock Draft 3.0: Browns take QB to compete with Shedeur Sanders",
-        "source": "New York Post",
-        "published_at": "2026-03-14T16:10:52Z",
-        "url": "https://nypost.com/2026/03/14/sports/2026-nfl-mock-draft-3-0-browns-take-qb-to-compete-with-shedeur-sanders/?utm_source=yahoo&amp;utm_campaign=nypost&amp;utm_medium=referral"
+        "title": "You Can Turn Your Old Dash Cam Into A Webcam - Here's How",
+        "source": "BGR",
+        "published_at": "2026-03-14T17:17:00Z",
+        "url": "https://www.bgr.com/2120055/how-to-use-dash-cam-as-webcam-guide/"
       },
       {
-        "title": "2026 NFL Mock Draft 3.0: Browns take QB to compete with Shedeur Sanders",
-        "source": "New York Post",
-        "published_at": "2026-03-14T16:10:52Z",
-        "url": "https://nypost.com/2026/03/14/sports/2026-nfl-mock-draft-3-0-browns-take-qb-to-compete-with-shedeur-sanders/"
+        "title": "1968 Ford F-100 Standard Cab 3-Speed",
+        "source": "Bringatrailer.com",
+        "published_at": "2026-03-14T16:50:04Z",
+        "url": "https://bringatrailer.com/listing/1968-ford-f-100-109/"
+      },
+      {
+        "title": "Troy Aikman blasts the NFL Combine and calls it useless",
+        "source": "Marca",
+        "published_at": "2026-03-14T16:48:49Z",
+        "url": "https://www.marca.com/en/nfl/dallas-cowboys/2026/03/14/69b5916546163f1a1b8b4598.html"
       }
     ],
     "ASML": [
