@@ -43,6 +43,7 @@
       border-bottom: 2px solid #1f3566;
       padding-bottom: 8px;
       font-size: 1.2rem;
+      text-align: right;
     }
 
     table {
@@ -91,12 +92,14 @@
     .filings-group h3 {
       margin: 0 0 10px 0;
       color: #1f3566;
+      text-align: right;
     }
 
     .news-item,
     .filing-item {
       padding: 8px 0;
       border-bottom: 1px solid #eceff5;
+      text-align: right;
     }
 
     .news-item:last-child,
@@ -132,6 +135,7 @@
       align-items: center;
       flex-wrap: wrap;
       margin-bottom: 14px;
+      justify-content: flex-start;
     }
 
     .watchlist-controls input {
@@ -154,6 +158,11 @@
 
     button:hover {
       opacity: 0.92;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
 
     #watchlist {
@@ -197,6 +206,7 @@
       border-radius: 8px;
       margin-bottom: 14px;
       display: none;
+      text-align: right;
     }
   </style>
 </head>
@@ -242,7 +252,7 @@
       <div class="watchlist-controls">
         <input id="ticker-input" type="text" placeholder="הכנס סימבול מניה" />
         <button type="button" onclick="addTicker()">הוסף</button>
-        <button type="button" onclick="refreshData()">רענן נתונים</button>
+        <button id="refresh-btn" type="button" onclick="refreshData()">רענן נתונים</button>
       </div>
 
       <div id="watchlist"></div>
@@ -250,6 +260,8 @@
   </main>
 
   <script>
+    const WORKER_URL = "https://divine-dust-ef69.yovav81.workers.dev";
+
     let watchlist = [];
     let dashboardData = {
       performance: [],
@@ -266,8 +278,13 @@
       if (!persistent) {
         setTimeout(() => {
           box.style.display = "none";
-        }, 3000);
+        }, 4500);
       }
+    }
+
+    function setRefreshDisabled(disabled) {
+      const btn = document.getElementById("refresh-btn");
+      btn.disabled = disabled;
     }
 
     function clearDashboard(showLoading = true) {
@@ -289,12 +306,25 @@
       }
     }
 
+    async function fetchWatchlistJson() {
+      const res = await fetch("watchlist.json?t=" + Date.now(), { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error("Failed to load watchlist.json");
+      }
+      return await res.json();
+    }
+
+    async function fetchDashboardJson() {
+      const res = await fetch("dashboard-data.json?t=" + Date.now(), { cache: "no-store" });
+      if (!res.ok) {
+        throw new Error("Failed to load dashboard-data.json");
+      }
+      return await res.json();
+    }
+
     async function loadWatchlist() {
       try {
-        const res = await fetch("watchlist.json?" + Date.now());
-        if (!res.ok) throw new Error("Failed to load watchlist");
-
-        const data = await res.json();
+        const data = await fetchWatchlistJson();
         watchlist = data.map(item => item.ticker);
         renderWatchlist();
       } catch (err) {
@@ -307,10 +337,7 @@
 
     async function loadData() {
       try {
-        const res = await fetch("dashboard-data.json?" + Date.now());
-        if (!res.ok) throw new Error("Failed to load dashboard data");
-
-        dashboardData = await res.json();
+        dashboardData = await fetchDashboardJson();
 
         const updatedEl = document.getElementById("updated");
         if (dashboardData.updated_at) {
@@ -480,7 +507,7 @@
         renderWatchlist();
         clearDashboard(true);
         renderDashboard();
-        showStatus(`המניה ${ticker} נוספה לתצוגה. אם אין לה נתונים עדיין, צריך לעדכן גם את watchlist.json ולהריץ workflow.`);
+        showStatus(`המניה ${ticker} נוספה. עכשיו לחץ "רענן נתונים".`);
       }
 
       input.value = "";
@@ -491,13 +518,87 @@
       renderWatchlist();
       clearDashboard(true);
       renderDashboard();
-      showStatus(`המניה ${ticker} הוסרה מהתצוגה`);
+      showStatus(`המניה ${ticker} הוסרה. עכשיו לחץ "רענן נתונים" כדי לשמור את השינוי.`);
+    }
+
+    async function waitForUpdatedData(oldUpdatedAt, maxAttempts = 24, delayMs = 5000) {
+      for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        try {
+          const newWatchlistData = await fetchWatchlistJson();
+          const newTickers = newWatchlistData.map(item => item.ticker);
+
+          const newDashboard = await fetchDashboardJson();
+          const newUpdatedAt = newDashboard.updated_at || null;
+
+          const allTickersPresent = watchlist.every(t => newTickers.includes(t));
+          const performanceTickers = (newDashboard.performance || []).map(x => x.ticker);
+          const relevantTickersPresent = watchlist.every(t => performanceTickers.includes(t));
+
+          if (allTickersPresent && newUpdatedAt && newUpdatedAt !== oldUpdatedAt && relevantTickersPresent) {
+            dashboardData = newDashboard;
+            watchlist = newTickers;
+            renderWatchlist();
+
+            const updatedEl = document.getElementById("updated");
+            updatedEl.innerText = "עודכן: " + new Date(dashboardData.updated_at).toLocaleString("he-IL");
+
+            renderDashboard();
+            return true;
+          }
+        } catch (err) {
+          console.error("polling error:", err);
+        }
+
+        showStatus(`מעדכן נתונים... ניסיון ${attempt} מתוך ${maxAttempts}`, true);
+        await new Promise(resolve => setTimeout(resolve, delayMs));
+      }
+
+      return false;
     }
 
     async function refreshData() {
-      clearDashboard(true);
-      await loadData();
-      showStatus("הנתונים רועננו");
+      try {
+        setRefreshDisabled(true);
+        clearDashboard(true);
+
+        const oldUpdatedAt = dashboardData.updated_at || null;
+
+        showStatus("שומר את רשימת המניות ומפעיל עדכון נתונים. זה עשוי לקחת עד 1–2 דקות.", true);
+
+        const resp = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            tickers: watchlist
+          })
+        });
+
+        const result = await resp.json();
+
+        if (!resp.ok || !result.ok) {
+          throw new Error(result.error || result.details || "Worker failed");
+        }
+
+        showStatus("העדכון הופעל בהצלחה. ממתין לנתונים החדשים...", true);
+
+        const success = await waitForUpdatedData(oldUpdatedAt, 24, 5000);
+
+        if (success) {
+          showStatus("הנתונים עודכנו בהצלחה");
+        } else {
+          await loadWatchlist();
+          await loadData();
+          showStatus("ה־workflow הופעל, אבל הנתונים עוד לא הושלמו. נסה שוב בעוד חצי דקה.", true);
+        }
+
+      } catch (err) {
+        console.error(err);
+        showStatus("שגיאה בהפעלת עדכון הנתונים: " + err.message, true);
+      } finally {
+        setRefreshDisabled(false);
+      }
     }
 
     window.onload = async () => {
