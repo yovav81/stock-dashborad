@@ -1,390 +1,510 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
-
 <head>
-<meta charset="UTF-8">
-<title>Stock Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stock Dashboard</title>
 
-<style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      background: #eef1f7;
+      color: #111;
+    }
 
-body{
-font-family:Arial;
-background:#f4f6fb;
-margin:0;
-padding:0;
-direction:rtl;
-}
+    header {
+      background: #1f3566;
+      color: white;
+      text-align: center;
+      padding: 24px 16px;
+    }
 
-header{
-background:#1b2a4e;
-color:white;
-padding:15px;
-text-align:center;
-}
+    header h1 {
+      margin: 0 0 10px 0;
+      font-size: 2.4rem;
+    }
 
-main{
-max-width:1200px;
-margin:auto;
-padding:20px;
-}
+    #updated {
+      font-size: 1rem;
+    }
 
-h2{
-border-bottom:2px solid #1b2a4e;
-padding-bottom:5px;
-}
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 24px 40px;
+    }
 
-table{
-width:100%;
-border-collapse:collapse;
-background:white;
-margin-bottom:20px;
-}
+    h2 {
+      margin-top: 28px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid #1f3566;
+      padding-bottom: 8px;
+      font-size: 1.2rem;
+    }
 
-th,td{
-border:1px solid #ddd;
-padding:8px;
-text-align:center;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      margin-bottom: 24px;
+    }
 
-th{
-background:#eef3ff;
-}
+    th, td {
+      border: 1px solid #cfd6e4;
+      padding: 12px 10px;
+      text-align: center;
+      vertical-align: middle;
+    }
 
-.positive{
-color:green;
-font-weight:bold;
-}
+    th {
+      background: #dde3ef;
+      font-weight: bold;
+    }
 
-.negative{
-color:red;
-font-weight:bold;
-}
+    .positive {
+      color: #0a8a2a;
+      font-weight: bold;
+    }
 
-.news-item,.filing-item{
-padding:8px;
-border-bottom:1px solid #eee;
-}
+    .negative {
+      color: #c62828;
+      font-weight: bold;
+    }
 
-.news-item a,.filing-item a{
-text-decoration:none;
-color:#1b2a4e;
-font-weight:bold;
-}
+    .section-box {
+      background: transparent;
+      min-height: 20px;
+    }
 
-.watchlist-bar{
-margin-top:20px;
-}
+    .news-group,
+    .filings-group {
+      margin-bottom: 18px;
+      background: white;
+      padding: 10px 12px;
+      border: 1px solid #d5dbe8;
+    }
 
-.watchlist-item{
-display:inline-block;
-background:#e8efff;
-padding:5px 10px;
-margin:3px;
-border-radius:4px;
-}
+    .news-group h3,
+    .filings-group h3 {
+      margin: 0 0 10px 0;
+      color: #1f3566;
+    }
 
-button{
-padding:8px 15px;
-border:none;
-background:#1b2a4e;
-color:white;
-cursor:pointer;
-border-radius:5px;
-}
+    .news-item,
+    .filing-item {
+      padding: 8px 0;
+      border-bottom: 1px solid #eceff5;
+    }
 
-button:hover{
-opacity:0.9;
-}
+    .news-item:last-child,
+    .filing-item:last-child {
+      border-bottom: none;
+    }
 
-.loading{
-color:#777;
-font-style:italic;
-}
+    .news-item a,
+    .filing-item a {
+      color: #1f3566;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-</style>
+    .news-item a:hover,
+    .filing-item a:hover {
+      text-decoration: underline;
+    }
 
+    .meta {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    .watchlist-bar {
+      margin-top: 26px;
+    }
+
+    .watchlist-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .watchlist-controls input {
+      min-width: 260px;
+      padding: 10px 12px;
+      border: 1px solid #c5cede;
+      border-radius: 4px;
+      background: white;
+    }
+
+    button {
+      border: none;
+      background: #1f3566;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.92;
+    }
+
+    #watchlist {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .watchlist-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e5ebf7;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .watchlist-item button {
+      background: transparent;
+      color: #a32020;
+      padding: 0;
+      font-size: 1rem;
+    }
+
+    .loading,
+    .empty-state {
+      color: #666;
+      font-style: italic;
+      background: white;
+      border: 1px solid #d5dbe8;
+      padding: 12px;
+    }
+
+    .status-box {
+      background: #fff7d6;
+      border: 1px solid #ecd98a;
+      color: #5e4a00;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
-<h1>Stock Dashboard</h1>
-<div id="updated"></div>
-</header>
-
-<main>
-
-<h2>ביצועי מניות</h2>
-
-<table id="performance-table">
-<thead>
-<tr>
-<th>מניה</th>
-<th>שבוע</th>
-<th>מתחילת חודש</th>
-<th>מתחילת שנה</th>
-</tr>
-</thead>
-
-<tbody></tbody>
-</table>
-
-
-<h2>חדשות</h2>
-<div id="news"></div>
-
-
-<h2>דוחות ודיווחים</h2>
-<div id="filings"></div>
-
-
-<div class="watchlist-bar">
-
-<h2>רשימת מניות</h2>
-
-<input id="ticker-input" placeholder="הכנס סימבול מניה">
-
-<button onclick="addTicker()">הוסף</button>
-
-<button onclick="refreshData()">רענן נתונים</button>
-
-<div id="watchlist"></div>
-
-</div>
-
-</main>
-
-
-<script>
-
-let watchlist=[]
-let dashboardData={}
-
-
-function clearDashboard(){
-
-document.querySelector("#performance-table tbody").innerHTML=
-`<tr><td colspan="4" class="loading">Loading...</td></tr>`
-
-document.getElementById("news").innerHTML=
-`<div class="loading">Loading...</div>`
-
-document.getElementById("filings").innerHTML=
-`<div class="loading">Loading...</div>`
-
-}
-
-
-async function loadData(){
-
-const res=await fetch("dashboard-data.json?"+Date.now())
-dashboardData=await res.json()
-
-document.getElementById("updated").innerText=
-"עודכן: "+new Date(dashboardData.updated_at).toLocaleString()
-
-renderDashboard()
-
-}
-
-
-function renderDashboard(){
-
-renderPerformance()
-renderNews()
-renderFilings()
-
-}
-
-
-function renderPerformance(){
-
-const tbody=document.querySelector("#performance-table tbody")
-tbody.innerHTML=""
-
-let filtered=dashboardData.performance.filter(p=>watchlist.includes(p.ticker))
-
-filtered.forEach(p=>{
-
-let row=document.createElement("tr")
-
-row.innerHTML=`
-
-<td>${p.ticker}</td>
-
-<td class="${p.week_change_pct>=0?'positive':'negative'}">
-${p.week_change_pct.toFixed(2)}%
-</td>
-
-<td class="${p.month_change_pct>=0?'positive':'negative'}">
-${p.month_change_pct.toFixed(2)}%
-</td>
-
-<td class="${p.ytd_change_pct>=0?'positive':'negative'}">
-${p.ytd_change_pct.toFixed(2)}%
-</td>
-
-`
-
-tbody.appendChild(row)
-
-})
-
-if(filtered.length===0){
-
-tbody.innerHTML=`<tr><td colspan="4">אין נתונים</td></tr>`
-
-}
-
-}
-
-
-function renderNews(){
-
-const box=document.getElementById("news")
-box.innerHTML=""
-
-watchlist.forEach(t=>{
-
-let items=dashboardData.news[t]
-
-if(!items)return
-
-let title=document.createElement("h3")
-title.innerText=t
-box.appendChild(title)
-
-items.forEach(n=>{
-
-let div=document.createElement("div")
-div.className="news-item"
-
-div.innerHTML=
-
-`<a href="${n.url}" target="_blank">${n.title}</a>
-<br>
-<small>${n.source||""}</small>`
-
-box.appendChild(div)
-
-})
-
-})
-
-}
-
-
-function renderFilings(){
-
-const box=document.getElementById("filings")
-box.innerHTML=""
-
-watchlist.forEach(t=>{
-
-let items=dashboardData.filings[t]
-
-if(!items)return
-
-let title=document.createElement("h3")
-title.innerText=t
-box.appendChild(title)
-
-items.forEach(f=>{
-
-let div=document.createElement("div")
-div.className="filing-item"
-
-div.innerHTML=
-
-`<a href="${f.url}" target="_blank">
-${f.type} - ${f.title}
-</a>
-<br>
-<small>${f.date}</small>`
-
-box.appendChild(div)
-
-})
-
-})
-
-}
-
-
-function renderWatchlist(){
-
-const box=document.getElementById("watchlist")
-box.innerHTML=""
-
-watchlist.forEach(t=>{
-
-let span=document.createElement("span")
-span.className="watchlist-item"
-
-span.innerHTML=
-`${t} <button onclick="removeTicker('${t}')">x</button>`
-
-box.appendChild(span)
-
-})
-
-}
-
-
-function addTicker(){
-
-let t=document.getElementById("ticker-input").value.trim().toUpperCase()
-
-if(!t)return
-
-if(!watchlist.includes(t)){
-
-watchlist.push(t)
-
-}
-
-renderWatchlist()
-
-clearDashboard()
-
-renderDashboard()
-
-document.getElementById("ticker-input").value=""
-
-}
-
-
-function removeTicker(t){
-
-watchlist=watchlist.filter(x=>x!==t)
-
-renderWatchlist()
-
-clearDashboard()
-
-renderDashboard()
-
-}
-
-
-async function refreshData(){
-
-clearDashboard()
-
-await loadData()
-
-}
-
-
-window.onload=async()=>{
-
-await loadData()
-
-}
-
-
-</script>
-
-
+  <header>
+    <h1>Stock Dashboard</h1>
+    <div id="updated"></div>
+  </header>
+
+  <main>
+    <div id="status-box" class="status-box"></div>
+
+    <section>
+      <h2>ביצועי מניות</h2>
+      <table id="performance-table">
+        <thead>
+          <tr>
+            <th>מניה</th>
+            <th>שבוע</th>
+            <th>מתחילת חודש</th>
+            <th>מתחילת שנה</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="performance-empty" class="empty-state" style="display:none;">אין נתונים</div>
+    </section>
+
+    <section>
+      <h2>חדשות</h2>
+      <div id="news" class="section-box"></div>
+    </section>
+
+    <section>
+      <h2>דוחות ודיווחים</h2>
+      <div id="filings" class="section-box"></div>
+    </section>
+
+    <section class="watchlist-bar">
+      <h2>רשימת מניות</h2>
+
+      <div class="watchlist-controls">
+        <input id="ticker-input" type="text" placeholder="הכנס סימבול מניה" />
+        <button type="button" onclick="addTicker()">הוסף</button>
+        <button type="button" onclick="refreshData()">רענן נתונים</button>
+      </div>
+
+      <div id="watchlist"></div>
+    </section>
+  </main>
+
+  <script>
+    let watchlist = [];
+    let dashboardData = {
+      performance: [],
+      news: {},
+      filings: {},
+      updated_at: null
+    };
+
+    function showStatus(message, persistent = false) {
+      const box = document.getElementById("status-box");
+      box.textContent = message;
+      box.style.display = "block";
+
+      if (!persistent) {
+        setTimeout(() => {
+          box.style.display = "none";
+        }, 3000);
+      }
+    }
+
+    function clearDashboard(showLoading = true) {
+      const tbody = document.querySelector("#performance-table tbody");
+      const newsBox = document.getElementById("news");
+      const filingsBox = document.getElementById("filings");
+      const perfEmpty = document.getElementById("performance-empty");
+
+      perfEmpty.style.display = "none";
+
+      if (showLoading) {
+        tbody.innerHTML = `<tr><td colspan="4" class="loading">Loading...</td></tr>`;
+        newsBox.innerHTML = `<div class="loading">Loading...</div>`;
+        filingsBox.innerHTML = `<div class="loading">Loading...</div>`;
+      } else {
+        tbody.innerHTML = "";
+        newsBox.innerHTML = "";
+        filingsBox.innerHTML = "";
+      }
+    }
+
+    async function loadWatchlist() {
+      try {
+        const res = await fetch("watchlist.json?" + Date.now());
+        if (!res.ok) throw new Error("Failed to load watchlist");
+
+        const data = await res.json();
+        watchlist = data.map(item => item.ticker);
+        renderWatchlist();
+      } catch (err) {
+        console.error("watchlist load error:", err);
+        watchlist = [];
+        renderWatchlist();
+        showStatus("שגיאה בטעינת רשימת המניות", true);
+      }
+    }
+
+    async function loadData() {
+      try {
+        const res = await fetch("dashboard-data.json?" + Date.now());
+        if (!res.ok) throw new Error("Failed to load dashboard data");
+
+        dashboardData = await res.json();
+
+        const updatedEl = document.getElementById("updated");
+        if (dashboardData.updated_at) {
+          updatedEl.innerText =
+            "עודכן: " + new Date(dashboardData.updated_at).toLocaleString("he-IL");
+        } else {
+          updatedEl.innerText = "";
+        }
+
+        renderDashboard();
+      } catch (err) {
+        console.error("dashboard load error:", err);
+        clearDashboard(false);
+        showStatus("שגיאה בטעינת נתוני הדאשבורד", true);
+      }
+    }
+
+    function renderWatchlist() {
+      const box = document.getElementById("watchlist");
+      box.innerHTML = "";
+
+      if (!watchlist.length) {
+        box.innerHTML = `<div class="empty-state">אין מניות ברשימה</div>`;
+        return;
+      }
+
+      watchlist.forEach(ticker => {
+        const item = document.createElement("span");
+        item.className = "watchlist-item";
+
+        const text = document.createElement("span");
+        text.textContent = ticker;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.type = "button";
+        removeBtn.textContent = "×";
+        removeBtn.title = "הסר מניה";
+        removeBtn.onclick = () => removeTicker(ticker);
+
+        item.appendChild(text);
+        item.appendChild(removeBtn);
+        box.appendChild(item);
+      });
+    }
+
+    function renderPerformance() {
+      const tbody = document.querySelector("#performance-table tbody");
+      const perfEmpty = document.getElementById("performance-empty");
+      tbody.innerHTML = "";
+
+      const filtered = (dashboardData.performance || []).filter(item =>
+        watchlist.includes(item.ticker)
+      );
+
+      if (!filtered.length) {
+        perfEmpty.style.display = "block";
+        return;
+      }
+
+      perfEmpty.style.display = "none";
+
+      filtered.forEach(item => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td><strong>${item.ticker}</strong></td>
+          <td class="${item.week_change_pct >= 0 ? "positive" : "negative"}">${Number(item.week_change_pct).toFixed(2)}%</td>
+          <td class="${item.month_change_pct >= 0 ? "positive" : "negative"}">${Number(item.month_change_pct).toFixed(2)}%</td>
+          <td class="${item.ytd_change_pct >= 0 ? "positive" : "negative"}">${Number(item.ytd_change_pct).toFixed(2)}%</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function renderNews() {
+      const box = document.getElementById("news");
+      box.innerHTML = "";
+
+      let found = false;
+
+      watchlist.forEach(ticker => {
+        const items = (dashboardData.news && dashboardData.news[ticker]) || [];
+        if (!items.length) return;
+
+        found = true;
+
+        const group = document.createElement("div");
+        group.className = "news-group";
+
+        const title = document.createElement("h3");
+        title.textContent = ticker;
+        group.appendChild(title);
+
+        items.forEach(article => {
+          const div = document.createElement("div");
+          div.className = "news-item";
+
+          div.innerHTML = `
+            <a href="${article.url || "#"}" target="_blank" rel="noopener noreferrer">${article.title || "כתבה"}</a>
+            <div class="meta">${article.source || ""}${article.published_at ? " • " + new Date(article.published_at).toLocaleString("he-IL") : ""}</div>
+          `;
+
+          group.appendChild(div);
+        });
+
+        box.appendChild(group);
+      });
+
+      if (!found) {
+        box.innerHTML = `<div class="empty-state">אין כתבות להצגה</div>`;
+      }
+    }
+
+    function renderFilings() {
+      const box = document.getElementById("filings");
+      box.innerHTML = "";
+
+      let found = false;
+
+      watchlist.forEach(ticker => {
+        const items = (dashboardData.filings && dashboardData.filings[ticker]) || [];
+        if (!items.length) return;
+
+        found = true;
+
+        const group = document.createElement("div");
+        group.className = "filings-group";
+
+        const title = document.createElement("h3");
+        title.textContent = ticker;
+        group.appendChild(title);
+
+        items.forEach(filing => {
+          const div = document.createElement("div");
+          div.className = "filing-item";
+
+          div.innerHTML = `
+            <a href="${filing.url || "#"}" target="_blank" rel="noopener noreferrer">${filing.type || "דיווח"} - ${filing.title || ""}</a>
+            <div class="meta">${filing.date || ""}</div>
+          `;
+
+          group.appendChild(div);
+        });
+
+        box.appendChild(group);
+      });
+
+      if (!found) {
+        box.innerHTML = `<div class="empty-state">אין דיווחים להצגה</div>`;
+      }
+    }
+
+    function renderDashboard() {
+      clearDashboard(false);
+      renderPerformance();
+      renderNews();
+      renderFilings();
+    }
+
+    function addTicker() {
+      const input = document.getElementById("ticker-input");
+      const ticker = input.value.trim().toUpperCase();
+
+      if (!ticker) return;
+
+      if (!watchlist.includes(ticker)) {
+        watchlist.push(ticker);
+        renderWatchlist();
+        clearDashboard(true);
+        renderDashboard();
+        showStatus(`המניה ${ticker} נוספה לתצוגה. אם אין לה נתונים עדיין, צריך לעדכן גם את watchlist.json ולהריץ workflow.`);
+      }
+
+      input.value = "";
+    }
+
+    function removeTicker(ticker) {
+      watchlist = watchlist.filter(t => t !== ticker);
+      renderWatchlist();
+      clearDashboard(true);
+      renderDashboard();
+      showStatus(`המניה ${ticker} הוסרה מהתצוגה`);
+    }
+
+    async function refreshData() {
+      clearDashboard(true);
+      await loadData();
+      showStatus("הנתונים רועננו");
+    }
+
+    window.onload = async () => {
+      clearDashboard(true);
+      await loadWatchlist();
+      await loadData();
+    };
+  </script>
 </body>
 </html>
