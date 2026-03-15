@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-14T07:51:12.131634+00:00",
+  "updated_at": "2026-03-15T07:56:06.657675+00:00",
   "performance": [
     {
       "ticker": "UBER",
@@ -29,69 +29,87 @@
   "news": {
     "UBER": [
       {
-        "title": "Gemini\u2019s task automation is now available on the Galaxy S26",
-        "source": "SamMobile",
-        "published_at": "2026-03-13T07:46:21Z",
-        "url": "https://www.sammobile.com/news/galaxy-s26-gemini-task-automation-now-live/"
+        "title": "Uber founder Travis Kalanick rebrands existing venture to Atoms with focus on robotics",
+        "source": "The Times of India",
+        "published_at": "2026-03-14T07:51:58Z",
+        "url": "https://economictimes.indiatimes.com/tech/technology/uber-founder-travis-kalanick-rebrands-existing-venture-to-atoms-with-focus-on-robotics/articleshow/129570949.cms"
       },
       {
-        "title": "Ready for take-off: experimental air-taxi spotted in skies over Oakland",
-        "source": "Freerepublic.com",
-        "published_at": "2026-03-13T06:19:32Z",
-        "url": "https://freerepublic.com/focus/f-chat/4370452/posts"
+        "title": "UK resident unable to get home as flight prices rise above $10K",
+        "source": "ABC News (AU)",
+        "published_at": "2026-03-14T03:27:56Z",
+        "url": "https://www.abc.net.au/news/2026-03-14/foreigner-visit-australia-unable-to-get-home-middle-east-flights/106441922"
       },
       {
-        "title": "Why Technology Makes Us More Productive but Not Richer",
-        "source": "Fullstackpm.tech",
-        "published_at": "2026-03-13T05:06:36Z",
-        "url": "https://fullstackpm.tech/blog/productivity-paradox-capital-lockup"
+        "title": "Uber cofounder Kalanick launches Atoms in specialised robotics push",
+        "source": "The Times of India",
+        "published_at": "2026-03-14T03:23:21Z",
+        "url": "https://economictimes.indiatimes.com/tech/technology/uber-cofounder-kalanick-launches-atoms-in-specialised-robotics-push/articleshow/129568181.cms"
       },
       {
-        "title": "Beyond Glamour: The Staples Baddie",
-        "source": "Gapingvoid.com",
-        "published_at": "2026-03-13T04:57:21Z",
-        "url": "https://www.gapingvoid.com/beyond-glamour-the-staples-baddie/"
+        "title": "Travis Kalanick launches a new company called Atoms focused on robotics - TechCrunch",
+        "source": "Slashdot.org",
+        "published_at": "2026-03-14T01:52:51Z",
+        "url": "https://slashdot.org/firehose.pl?op=view&amp;id=180981772"
       },
       {
-        "title": "A Third-Party Promo Gone Awry; OpenAI Has An App For That",
-        "source": "AdExchanger",
-        "published_at": "2026-03-13T04:03:47Z",
-        "url": "http://www.adexchanger.com/daily-news-roundup/friday-13032026/"
+        "title": "Uber co-founder Travis Kalanick launches robotics venture Atoms",
+        "source": "SiliconANGLE News",
+        "published_at": "2026-03-14T01:41:16Z",
+        "url": "https://siliconangle.com/2026/03/13/uber-co-founder-travis-kalanick-launches-robotics-venture-atoms/"
       }
     ],
     "DASH": [
       {
-        "title": "Man (80s) seriously injured after being struck by bus in Bray",
-        "source": "TheJournal.ie",
-        "published_at": "2026-03-13T07:49:15Z",
-        "url": "https://www.thejournal.ie/man-injured-bus-bray-wicklow-6983882-Mar2026/"
+        "title": "Michael Healy-Rae: What does \u2018Ireland\u2019s wealthiest TD\u2019 own and what is it worth?",
+        "source": "The Irish Times",
+        "published_at": "2026-03-14T06:00:00Z",
+        "url": "https://www.irishtimes.com/politics/2026/03/14/michael-healy-rae-what-does-irelands-wealthiest-td-own-and-what-is-it-worth/"
       },
       {
-        "title": "ml-dash 0.6.20",
-        "source": "Pypi.org",
-        "published_at": "2026-03-13T07:24:56Z",
-        "url": "https://pypi.org/project/ml-dash/0.6.20/"
+        "title": "Woman found dead in Cork named locally as garda\u00ed investigating suspicious death",
+        "source": "Independent.ie",
+        "published_at": "2026-03-14T05:30:00Z",
+        "url": "https://www.independent.ie/irish-news/woman-found-dead-in-cork-named-locally-as-gardai-investigating-suspicious-death/a1588538879.html"
       },
       {
-        "title": "\u2018All sacrifices of work culminate in knowledge\u2019: Orissa High Court invokes Bhagavad Gita, orders peon\u2019s promotion",
-        "source": "The Indian Express",
-        "published_at": "2026-03-13T07:17:46Z",
-        "url": "https://indianexpress.com/article/legal-news/orissa-high-court-peon-promotion-gita-shakespeare-judgment-10579579/"
+        "title": "Facing rockets, Arabs in northern Israel fume over lack of shelters",
+        "source": "The Times of India",
+        "published_at": "2026-03-14T04:38:26Z",
+        "url": "https://economictimes.indiatimes.com/news/defence/facing-rockets-arabs-in-northern-israel-fume-over-lack-of-shelters/articleshow/129568748.cms"
       },
       {
-        "title": "Billionaire Vinod Khosla says \u2018follow your passion\u2019 is bad career advice for kids today\u2014but could be the best in 15 years",
-        "source": "Fortune",
-        "published_at": "2026-03-13T07:04:00Z",
-        "url": "https://fortune.com/2026/03/13/vinod-khosla-gen-z-gen-alpha-best-career-advice-follow-your-passion-secret-for-success/"
+        "title": "What to do for a grumpy hedgehog?",
+        "source": "Lifesciencesworld.com",
+        "published_at": "2026-03-14T03:11:29Z",
+        "url": "https://www.lifesciencesworld.com/what-to-do-for-a-grumpy-hedgehog/"
       },
       {
-        "title": "Eagles-only mock draft: Howie Roseman goes heavy on offense",
-        "source": "Nbcsportsphiladelphia.com",
-        "published_at": "2026-03-13T07:00:00Z",
-        "url": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-only-mock-draft-howie-roseman-goes-heavy-on-offense/720566/?partner=yahoo"
+        "title": "FEATURE FRIDAY: Patty (Hodgson) Gleeson",
+        "source": "Widerightnattylite.com",
+        "published_at": "2026-03-14T03:02:54Z",
+        "url": "https://www.widerightnattylite.com/feature-friday/51082/feature-friday-patty-hodgson-gleeson"
       }
     ],
     "ASML": [
+      {
+        "title": "Illuminating the Fine Print That Governs Your Digital Life",
+        "source": "Harvard School of Engineering and Applied Sciences",
+        "published_at": "2026-03-13T16:40:51Z",
+        "url": "https://cyber.harvard.edu/story/2026-03/illuminating-fine-print-governs-your-digital-life"
+      },
+      {
+        "title": "ASML (ASML) Gained 55.8% in 2025",
+        "source": "Yahoo Entertainment",
+        "published_at": "2026-03-13T13:07:51Z",
+        "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_872ae8a1-7b79-4c41-ab5c-4532375eaa08"
+      },
+      {
+        "title": "Europe\u2019s second chance on AI: building an opportunity in factories, labs, and the real economy",
+        "source": "Fortune",
+        "published_at": "2026-03-13T09:30:00Z",
+        "url": "https://fortune.com/2026/03/13/europe-ai-next-wave-factories-talent-industrial-strength/"
+      },
       {
         "title": "IBM and Lam's new partnership paves the way toward sub-1nm logic using High-NA EUV \u2014 Albany lab to pioneer dry resist process integration",
         "source": "Tom's Hardware UK",
@@ -103,24 +121,6 @@
         "source": "24/7 Wall St.",
         "published_at": "2026-03-11T08:29:59Z",
         "url": "https://247wallst.com/investing/2026/03/11/how-retirees-are-using-esgd-to-pair-esg-values-with-international-dividend-income/"
-      },
-      {
-        "title": "Why ASML Investors Shouldn\u2019t Worry About Competition From China",
-        "source": "Yahoo Entertainment",
-        "published_at": "2026-03-10T14:26:14Z",
-        "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_53dea182-2898-409d-9ae9-859bb5ea2b6b"
-      },
-      {
-        "title": "BofA Lifts PT on ASML Holding N.V. (ASML) to $1,886 from $1,868 \u2013 Here\u2019s Why",
-        "source": "Yahoo Entertainment",
-        "published_at": "2026-03-10T11:11:58Z",
-        "url": "https://finance.yahoo.com/news/bofa-lifts-pt-asml-holding-111158589.html"
-      },
-      {
-        "title": "China's Semiconductor Makers Unite In Call To 'Build China's ASML'",
-        "source": "Yahoo Entertainment",
-        "published_at": "2026-03-10T11:00:20Z",
-        "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_f4cc3d1b-f013-4bf1-a2ba-2a4bf2bf155c"
       }
     ],
     "ELAL.TA": [
