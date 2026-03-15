@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-15T17:20:44.998123+00:00",
+  "updated_at": "2026-03-15T19:40:45.917049+00:00",
   "performance": [
     {
       "ticker": "UBER",
@@ -29,42 +29,42 @@
   "news": {
     "UBER": [
       {
-        "title": "The Dark Side of AI: Innocent Grandmother Wrongfully Jailed for 6 Months After Facial Recognition Error",
-        "source": "Freerepublic.com",
-        "published_at": "2026-03-14T16:39:10Z",
-        "url": "https://freerepublic.com/focus/f-news/4370624/posts"
+        "title": "Why Travis Kalanick believes humans are on the verge of a 'golden age'",
+        "source": "Business Insider",
+        "published_at": "2026-03-14T19:02:01Z",
+        "url": "https://www.businessinsider.com/travis-kalanick-atoms-uber-humanoid-robots-golden-age-2026-3"
       },
       {
-        "title": "Inside the newly opened, beachy-chic InterContinental Sydney Coogee Beach",
-        "source": "The Points Guy",
-        "published_at": "2026-03-14T16:00:10Z",
-        "url": "https://thepointsguy.com/hotel/reviews/intercontinental-sydney-coogee-beach/"
-      },
-      {
-        "title": "Billionaire Bill Ackman says he doesn’t like ‘wasting money’—he’ll even drive elsewhere for cheaper garages, despite once owning a parking company",
+        "title": "Travis Kalanick sees benefits of being in stealth mode for 8 years. ‘You build a culture of people that want to build and do not need to be famous’",
         "source": "Fortune",
-        "published_at": "2026-03-14T14:52:03Z",
-        "url": "https://fortune.com/article/frugal-billionaires-bill-ackman-warren-buffett-lucy-guo/"
+        "published_at": "2026-03-14T18:19:38Z",
+        "url": "https://fortune.com/2026/03/14/travis-kalanick-startup-atoms-stealth-mode-pronto-robotics-self-driving-uber/"
+      },
+      {
+        "title": "The Return of Travis Kalanick: Fact & Fluff!",
+        "source": "Om.co",
+        "published_at": "2026-03-14T17:45:00Z",
+        "url": "https://om.co/2026/03/14/the-fact-fluff-of-return-of-travis-kalanick/"
       }
     ],
     "DASH": [
       {
-        "title": "You Can Turn Your Old Dash Cam Into A Webcam - Here's How",
-        "source": "BGR",
-        "published_at": "2026-03-14T17:17:00Z",
-        "url": "https://www.bgr.com/2120055/how-to-use-dash-cam-as-webcam-guide/"
-      },
-      {
-        "title": "1968 Ford F-100 Standard Cab 3-Speed",
+        "title": "Roofless, LQ9-Powered 1999 Chevrolet Silverado 1500 LT Z71 4×4",
         "source": "Bringatrailer.com",
-        "published_at": "2026-03-14T16:50:04Z",
-        "url": "https://bringatrailer.com/listing/1968-ford-f-100-109/"
+        "published_at": "2026-03-14T19:19:12Z",
+        "url": "https://bringatrailer.com/listing/1999-chevrolet-silverado-1500-35/"
       },
       {
-        "title": "Troy Aikman blasts the NFL Combine and calls it useless",
-        "source": "Marca",
-        "published_at": "2026-03-14T16:48:49Z",
-        "url": "https://www.marca.com/en/nfl/dallas-cowboys/2026/03/14/69b5916546163f1a1b8b4598.html"
+        "title": "1963 Chevrolet Corvette Split-Window Coupe L76 327/340 4-Speed",
+        "source": "Bringatrailer.com",
+        "published_at": "2026-03-14T19:17:00Z",
+        "url": "https://bringatrailer.com/listing/1963-chevrolet-corvette-coupe-208/"
+      },
+      {
+        "title": "1997 Chevrolet C1500 Suburban LT at No Reserve",
+        "source": "Bringatrailer.com",
+        "published_at": "2026-03-14T19:02:03Z",
+        "url": "https://bringatrailer.com/listing/1997-chevrolet-suburban-43/"
       }
     ],
     "ASML": [
