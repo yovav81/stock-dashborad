@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-15T15:56:43.400461+00:00",
+  "updated_at": "2026-03-15T16:05:41.267013+00:00",
   "performance": [
     {
       "ticker": "UBER",
@@ -29,6 +29,12 @@
   "news": {
     "UBER": [
       {
+        "title": "Inside the newly opened, beachy-chic InterContinental Sydney Coogee Beach",
+        "source": "The Points Guy",
+        "published_at": "2026-03-14T16:00:10Z",
+        "url": "https://thepointsguy.com/hotel/reviews/intercontinental-sydney-coogee-beach/"
+      },
+      {
         "title": "Billionaire Bill Ackman says he doesn’t like ‘wasting money’—he’ll even drive elsewhere for cheaper garages, despite once owning a parking company",
         "source": "Fortune",
         "published_at": "2026-03-14T14:52:03Z",
@@ -39,12 +45,6 @@
         "source": "TechCrunch",
         "published_at": "2026-03-14T13:00:00Z",
         "url": "https://techcrunch.com/2026/03/14/how-to-use-the-new-chatgpt-app-integrations-including-doordash-spotify-uber-and-others/"
-      },
-      {
-        "title": "How Alfred the service dog changes the rights of Lyft riders nationwide",
-        "source": "Fortune",
-        "published_at": "2026-03-14T12:42:35Z",
-        "url": "https://fortune.com/2026/03/14/how-alfred-the-service-dog-changes-the-rights-of-lyft-riders-nationwide/"
       }
     ],
     "DASH": [
