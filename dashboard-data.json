@@ -1,90 +1,90 @@
 {
-  "updated_at": "2026-03-16T09:47:06.657857+00:00",
+  "updated_at": "2026-03-16T16:15:06.235427+00:00",
   "performance": [
     {
       "ticker": "UBER",
-      "week_change_pct": -0.69,
-      "month_change_pct": -2.77,
-      "ytd_change_pct": -10.26
+      "week_change_pct": 1.29,
+      "month_change_pct": -0.83,
+      "ytd_change_pct": -8.46
     },
     {
       "ticker": "DASH",
-      "week_change_pct": -8.62,
-      "month_change_pct": -8.56,
-      "ytd_change_pct": -28.75
+      "week_change_pct": -6.42,
+      "month_change_pct": -6.35,
+      "ytd_change_pct": -27.03
     },
     {
       "ticker": "ASML",
-      "week_change_pct": -0.86,
-      "month_change_pct": -7.23,
-      "ytd_change_pct": 25.95
+      "week_change_pct": 1.3,
+      "month_change_pct": -5.21,
+      "ytd_change_pct": 28.69
     },
     {
       "ticker": "ELAL.TA",
-      "week_change_pct": -5.0,
-      "month_change_pct": -16.01,
-      "ytd_change_pct": -20.53
+      "week_change_pct": -1.52,
+      "month_change_pct": -12.93,
+      "ytd_change_pct": -17.63
     }
   ],
   "news": {
     "UBER": [
       {
-        "title": "Co-Founder of Uber Pivots Real Estate Company to Robots, Posts Manifesto",
-        "source": "Gizmodo.com",
-        "published_at": "2026-03-15T09:00:32Z",
-        "url": "https://gizmodo.com/co-founder-of-uber-pivots-real-estate-company-to-robots-posts-manifesto-2000733751"
+        "title": "TechCrunch Mobility: Travis Kalanick's return proves it really is 2016 again | TechCrunch",
+        "source": "TechCrunch",
+        "published_at": "2026-03-15T16:07:33Z",
+        "url": "https://techcrunch.com/2026/03/15/techcrunch-mobility-travis-kalanicks-return-proves-it-really-is-2016-again/"
       },
       {
-        "title": "USA-Dominican Republic will be WBC clash of uber-talented teams with very different styles",
-        "source": "New York Post",
-        "published_at": "2026-03-15T08:36:58Z",
-        "url": "https://nypost.com/2026/03/15/sports/team-usa-dominican-republic-will-be-wbc-clash-of-the-uber-talented/"
+        "title": "Billionaire Uber co-founder reveals he’s joined exodus from California",
+        "source": "Freerepublic.com",
+        "published_at": "2026-03-15T16:05:08Z",
+        "url": "https://freerepublic.com/focus/f-news/4370754/posts"
       },
       {
-        "title": "Our chaotic Big Mac pricing test",
-        "source": "Business Insider",
-        "published_at": "2026-03-15T08:33:01Z",
-        "url": "https://www.businessinsider.com/big-mac-mcdonalds-uber-eats-price-experiment-delivery-fee-charges-2026-3"
+        "title": "Billionaire Travis Kalanick Dumps California For Texas Amid Potential Wealth Tax",
+        "source": "The Daily Caller",
+        "published_at": "2026-03-15T16:03:26Z",
+        "url": "https://dailycaller.com/2026/03/15/uber-co-founder-kalanick-dumps-california-texas-billionaire-wealth-tax/"
       }
     ],
     "DASH": [
       {
-        "title": "Our chaotic Big Mac pricing test",
-        "source": "Business Insider",
-        "published_at": "2026-03-15T08:33:01Z",
-        "url": "https://www.businessinsider.com/big-mac-mcdonalds-uber-eats-price-experiment-delivery-fee-charges-2026-3"
+        "title": "Man in his 30s seriously injured in early-morning assault in Naas",
+        "source": "TheJournal.ie",
+        "published_at": "2026-03-15T15:24:45Z",
+        "url": "https://www.thejournal.ie/man-injured-assault-naas-arrest-6985948-Mar2026/"
       },
       {
-        "title": "Staples 50% back in reward points for all Logitech product $100 (1 replies)",
-        "source": "Slickdeals.net",
-        "published_at": "2026-03-15T06:35:01Z",
-        "url": "https://slickdeals.net/f/19307217-staples-50-back-in-reward-points-for-all-logitech-product-100"
+        "title": "Man (30s) rushed to hospital with serious injuries after assault in Kildare",
+        "source": "Independent.ie",
+        "published_at": "2026-03-15T15:08:32Z",
+        "url": "https://www.independent.ie/irish-news/man-30s-rushed-to-hospital-with-serious-injuries-after-assault-in-kildare/a977731740.html"
       },
       {
-        "title": "Vector Illustration - Draw PRO",
-        "source": "Giveawayoftheday.com",
-        "published_at": "2026-03-15T06:11:34Z",
-        "url": "https://iphone.giveawayoftheday.com/vector-illustration-draw-pro/"
+        "title": "Disney World Lightning Lanes Are EXPENSIVE — Do You Really Need Them?",
+        "source": "allears.net",
+        "published_at": "2026-03-15T14:38:57Z",
+        "url": "https://allears.net/2026/03/15/disney-world-lightning-lanes-are-expensive-do-you-really-need-them/"
       }
     ],
     "ASML": [
+      {
+        "title": "Why open source AI is starting to win the enterprise battle against commercial models",
+        "source": "Techpinions.com",
+        "published_at": "2026-03-15T14:00:00Z",
+        "url": "https://techpinions.com/why-open-source-ai-is-starting-to-win-the-enterprise-battle-against-commercial-models/"
+      },
+      {
+        "title": "ASML workers still in the dark seven weeks after 1,700 management cuts announced — cuts represent 4% of its global workforce",
+        "source": "Tom's Hardware UK",
+        "published_at": "2026-03-15T13:50:00Z",
+        "url": "https://www.tomshardware.com/tech-industry/asml-workers-still-in-the-dark-seven-weeks-after-1700-management-cuts-announced"
+      },
       {
         "title": "Daily Tech News 15 March 2026",
         "source": "Acecomments.mu.nu",
         "published_at": "2026-03-15T08:00:00Z",
         "url": "https://acecomments.mu.nu/?post=418908"
-      },
-      {
-        "title": "GTC preview: Inside the AI factory — The $1T infrastructure war under the hood of the AI economy",
-        "source": "SiliconANGLE News",
-        "published_at": "2026-03-15T03:01:34Z",
-        "url": "https://siliconangle.com/2026/03/14/gtc-preview-inside-ai-factory-1t-infrastructure-war-hood-ai-economy/"
-      },
-      {
-        "title": "Illuminating the Fine Print That Governs Your Digital Life",
-        "source": "Harvard School of Engineering and Applied Sciences",
-        "published_at": "2026-03-13T16:40:51Z",
-        "url": "https://cyber.harvard.edu/story/2026-03/illuminating-fine-print-governs-your-digital-life"
       }
     ],
     "ELAL.TA": [
